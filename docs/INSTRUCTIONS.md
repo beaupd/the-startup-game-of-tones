@@ -1,6 +1,6 @@
 # The Game of Tones chapter page
 
-Bouw de chapter page van de The Game of Tones Web App
+Bouw The Game of Tones web app
 
 ## Context
 Deze leertaak hoort bij sprint The Startup Dit is een autonomous leertaak die je individueel uitvoert voor de The Game of Tones.
