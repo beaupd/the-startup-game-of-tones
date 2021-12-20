@@ -1,4 +1,4 @@
-# The Game of Tones chapter page
+# The Game of Tones
 
 Bouw de interactieve The Game of Tones web app
 
