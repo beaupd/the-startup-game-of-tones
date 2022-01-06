@@ -1,6 +1,6 @@
 # The Game of Tones
 
-Bouw de interactieve The Game of Tones web app
+![The Game of Tones](https://github.com/fdnd-task/the-game-of-tones-chapterpage/blob/main/docs/the-game-of-tones.jpg?raw=true)
 
 ## Context
 Deze leertaak hoort bij sprint The Startup Dit is een autonomous leertaak die je individueel uitvoert voor de The Game of Tones.
