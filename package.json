@@ -1,0 +1,27 @@
+{
+  "name": "the-startup-game-of-tones",
+  "version": "1.0.0",
+  "description": "Dit is een volledige interactief prototype voor de lesmethode van game of Tones",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "development": "next dev -H 0.0.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beaupd/the-startup-game-of-tones.git"
+  },
+  "author": "Beau Dekker & Finn van Bekkum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beaupd/the-startup-game-of-tones/issues"
+  },
+  "homepage": "https://github.com/beaupd/the-startup-game-of-tones#readme",
+  "dependencies": {
+    "next": "^12.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
