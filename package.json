@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "development": "next dev -H 0.0.0.0"
+    "dev": "next dev -H 0.0.0.0"
   },
   "repository": {
     "type": "git",
