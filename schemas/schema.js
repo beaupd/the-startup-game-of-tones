@@ -5,7 +5,9 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import volume from "./volume"
-
+import subchapter from "./subchapter"
+import chapter from "./chapter"
+import content from "./content"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -16,6 +18,8 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     volume,
-
+    chapter,
+    subchapter,
+    content
   ]),
 })
