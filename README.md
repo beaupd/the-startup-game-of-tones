@@ -1,6 +1,5 @@
 # Interactive webapp voor Game of Tones met Content Management System
 
-
 ## Inhoudsopgave
 
   * [Beschrijving](#beschrijving)
