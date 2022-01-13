@@ -15,7 +15,7 @@ const Les = ({ children, header="", sideBarTitle, type }) => {
         }[type],
     };
 
-    console.log(color.bgColor, color.bgColorLight)
+    // console.log(color.bgColor, color.bgColorLight)
     
     return (
         <>
@@ -40,9 +40,6 @@ const Les = ({ children, header="", sideBarTitle, type }) => {
             </aside>
 
             <main className="main">
-                <header>
-                    <h1 className="chapterHeader" id="chapterHeader">{header}</h1>
-                </header>
 
                 {children}
 
