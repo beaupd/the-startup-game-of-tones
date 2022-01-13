@@ -1,13 +1,15 @@
 import Les from "../components/layouts/Les"
+import {attributes, react as ChapterComponent } from "../content/chapter1.md" 
 
 const Chapter = () => {
+    let {title, color} = attributes
+
     return (
         <Les 
-            header="Chapter 1: Pitch Successions" 
-            sideBarTitle="Chapter Introduction"
-            type="blue"
+            sideBarTitle={title}
+            type={color}
         >
-
+            <ChapterComponent />
         </Les>
     )
 }

@@ -1,4 +1,4 @@
-const Les = ({ children, header, sideBarTitle, type }) => {
+const Les = ({ children, header="", sideBarTitle, type }) => {
     
     const color = {
         bgColor: {
@@ -19,34 +19,34 @@ const Les = ({ children, header, sideBarTitle, type }) => {
     
     return (
         <>
-            <nav class="topBar" id="topBar">
+            <nav className="topBar" id="topBar">
 
-                <div class="circleIcon"><img src="/music-note2.svg" alt="music-note" /></div>
+                <div className="circleIcon"><img src="/music-note2.svg" alt="music-note" /></div>
                 <div>
                     <hr/>
                 </div>
-                <div class="circleIcon"> <img src="/profile.svg" alt="profile" /></div>
+                <div className="circleIcon"> <img src="/profile.svg" alt="profile" /></div>
 
             </nav>
 
 
-            <aside class="sideBar" id="sideBar">
+            <aside className="sideBar" id="sideBar">
                 <a href="/home.html">
-                    <img class="sideBarItem" src="/menu-button.svg" alt="menu-button" /></a>
+                    <img className="sideBarItem" src="/menu-button.svg" alt="menu-button" /></a>
                 <p id="menuButtonText">Menu</p>
 
-                <h2 class="sideBarItem1" id="sideBartext">{sideBarTitle}</h2>
+                <h2 className="sideBarItem1" id="sideBartext">{sideBarTitle}</h2>
 
             </aside>
 
-            <main class="main">
+            <main className="main">
                 <header>
-                    <h1 class="chapterHeader" id="chapterHeader">{header}</h1>
+                    <h1 className="chapterHeader" id="chapterHeader">{header}</h1>
                 </header>
 
                 {children}
 
-                <a class="continueContainer" id="nextChapterLink"  href="#">
+                <a className="continueContainer" id="nextChapterLink"  href="#">
                     <p id="nextChapter">Continue</p>
                     <img src="/arrow-right.svg" alt=""/>
                 </a>
