@@ -1,8 +1,41 @@
 import Head from "next/head"
 import styles from "../styles/LoginPage.module.css"
+import {useState, useRef} from "react"
 
 const LoginPage = () => {
     
+    const [isSuccessUser, setSuccessUser] = useState(false)
+    const [isSuccessPass, setSuccessPass] = useState(false)
+    const [hasFocussedUser, setHasFocussedUser] = useState(false)
+    const [hasFocussedPass, setHasFocussedPass] = useState(false)
+
+    const userRef = useRef(null)
+    const passRef = useRef(null)
+
+    const validateUser = (e) => {
+        const usernameValue = userRef.current.value;
+
+        if(usernameValue === '') {
+            setSuccessUser(false)
+        } else {
+            setSuccessUser(true)
+        }
+        console.log(hasFocussedUser, isSuccessUser)
+    };
+
+    const validatePass = (e) => {
+        const passwordValue = passRef.current.value;
+
+        if(passwordValue === '') {
+            setSuccessPass(false)
+        } else if (passwordValue.length < 8 ) {
+            setSuccessPass(false)
+        } else {
+            setSuccessPass(true)
+        }
+    };
+
+
     return (
         <>
           <Head>
@@ -19,19 +52,28 @@ const LoginPage = () => {
 
                 <p className={styles.para}>Creative Music Making</p>
 
-
-                 <form className={styles.formContainer} method="post" name="myForm" >
-                     <label className={styles.labelStyle} id="test">
-                        Username:
-                        <input className={styles.inputStyle} type="text"  id="username" />
-                    </label>
-                    <label className={styles.labelStyle}>
-                        Password:
-                        <input className={styles.inputStyle} type="password" name="password" id="password" />
-                        </label>
+                 <form className={styles.formContainer} id="form" method="post" name="myForm" >
+                     <div className={styles.inputControl}>
+                         <div className={styles.inputContainer} style={{borderBottom: hasFocussedUser ? (isSuccessUser ? "1px solid #09c372" : "1px solid #ff3860") : "1px solid #555555"}}>
+                            <label className={styles.labelStyle} htmlFor="username">
+                                Username:
+                            </label>
+                            <input className={styles.inputStyle} type="text"  id="username" onKeyUp={(e) => {validateUser(e); setHasFocussedUser(true)}} ref={userRef} />
+                        </div>
+                        <div className={`${styles.error} error`}></div>
+                        </div>
+                    <div className={styles.inputControl}>
+                        <div className={styles.inputContainer} style={{borderBottom: hasFocussedPass ? (isSuccessPass ? "1px solid #09c372" : "1px solid #ff3860") : "1px solid #555555"}}>
+                            <label className={styles.labelStyle} htmlFor="password">
+                                Password:
+                            </label>
+                            <input className={styles.inputStyle} type="password" name="password" id="password" onKeyUp={(e) => {validatePass(e);setHasFocussedPass(true)}} ref={passRef} />
+                            </div>
+                        <div className={`${styles.error} error`}></div>
+                        </div>
                         <a id="accountCreation" href="/register">Create account</a>
                         <a id="ForgotInfo" href="#">Forgot password or username? </a>
-                    <input type="submit" id="inlogButton" value="SIGN IN"/>
+                    <input type="submit" id="inlogButton" value="SIGN IN" onClick={()=>{setHasFocussedUser(true);setHasFocussedPass(true)}}/>
                 </form>
 
             </main>

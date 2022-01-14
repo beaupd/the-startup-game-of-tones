@@ -46,17 +46,23 @@
     height: 100vh;
 }
 
+.inputContainer {
+    border-bottom: 1px solid #555555;
+    padding: 0.5em 0;
+    margin-bottom: 1em;
+}
+
 .inputStyle {
     border-style: none;
     background: none;
     padding: 0em 0em 0.5em 0.5em;
-    font-size: 1em;
+    font-size: 1.1em;
     color: #8D74B1;
 }
 
 .inputStyle:focus {
     outline: none;
-    font-size: 1em;
+    font-size: 1.1em;
 
 
 }
@@ -69,7 +75,7 @@
 }
 
 .labelStyle {
-    border-bottom: 1px solid #555555;
+    /* border-bottom: 1px solid #555555; */
     margin: 2em 0em;
     color: #555555;
     font-size: 1.2em;
@@ -139,4 +145,39 @@
 
 #signUpTitle {
     margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.inputControl:first-of-type {
+    margin-top: 1em;
+}
+.inputControl:last-of-type {
+    margin-bottom: 0.5em;
+}
+
+.inputControl.success .inputContainer {
+   border-color: #09c372;
+}
+
+.inputControl.error .inputContainer,
+.inputControl.error div {
+    border-color: #ff3860;
+
+}
+
+.inputControl .error {
+    border-color: #ff3860;
+    color: #ff3860;
+    font-size: 0.7em;
+    height: 13px;
 }
