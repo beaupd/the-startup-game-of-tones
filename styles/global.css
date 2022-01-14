@@ -1,13 +1,11 @@
 /* Importeer fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Poppins&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Poppins&display=swap");
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'poppins', sans-serif;
-
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
 }
 
 h1,
@@ -15,502 +13,452 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'poppins';
+  font-family: "poppins";
 }
 
 h1 {
-    Font-size: 32px;
-    Line-height: 10px;
-    Letter-spacing: -3%;
-    margin: 0;
-    padding: 0;
-    font-weight: 100;
+  font-size: 32px;
+  line-height: 10px;
+  letter-spacing: -3%;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
 }
 
 h2 {
-    Font-size: 24px;
-    font-weight: 100;
-    text-align: center;
-
-
+  font-size: 24px;
+  font-weight: 100;
+  text-align: center;
 }
 
 a {
-    color: inherit;
+  color: inherit;
 }
 
 span {
-    font-weight: bold;
-    font-size: 25px;
-
+  font-weight: bold;
+  font-size: 25px;
 }
 
 p {
-    font-family: 'Assistant';
+  font-family: "Assistant";
 }
 
 .musicNote {
-    margin-left: 20px;
-    margin-bottom: 30px;
-    animation: bounce 3s infinite linear;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  animation: bounce 3s infinite linear;
 }
 
 @keyframes bounce {
+  0% {
+    transform: translateY(15px);
+  }
 
-    0% {
-        transform: translateY(15px);
+  20% {
+    transform: translateY(10px);
+  }
 
-    }
+  40% {
+    transform: translateY(0px);
+  }
 
-    20% {
-        transform: translateY(10px);
-    }
+  60% {
+    transform: translateY(0px);
+  }
 
-    40% {
-        transform: translateY(0px);
-    }
+  80% {
+    transform: translateY(10px);
+  }
 
-    60% {
-        transform: translateY(0px);
-
-    }
-
-    80% {
-        transform: translateY(10px);
-    }
-
-    100% {
-        transform: translateY(15px);
-
-
-    }
-
+  100% {
+    transform: translateY(15px);
+  }
 }
 
 .background-image {
-    background: url("/background.png"), linear-gradient(#3F51B5, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 50%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
+  background: url("/background.png"), linear-gradient(#3f51b5, #ffffff);
+  background-repeat: no-repeat;
+  opacity: 50%;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 .background-image1 {
-    background: url("/background.png"), linear-gradient(#54BA54, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 50%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
+  background: url("/background.png"), linear-gradient(#54ba54, #ffffff);
+  background-repeat: no-repeat;
+  opacity: 50%;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 .background-image2 {
-    background: url("/background.png"), linear-gradient(#FF9400, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 50%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
+  background: url("/background.png"), linear-gradient(#ff9400, #ffffff);
+  background-repeat: no-repeat;
+  opacity: 50%;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 .background-imageHome {
-    background: url("/background.png"), linear-gradient(#000000, #000000);
-    background-repeat: no-repeat;
-    opacity: 70%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
+  background: url("/background.png"), linear-gradient(#000000, #000000);
+  background-repeat: no-repeat;
+  opacity: 70%;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
-
 .para {
-    font-size: 21px;
-    color: #555555;
-    margin-bottom: 80px;
+  font-size: 21px;
+  color: #555555;
+  margin-bottom: 80px;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .radioButtons {
-    display: flex;
-    padding: 100px;
-    align-items: space-between;
+  display: flex;
+  padding: 100px;
+  align-items: space-between;
 }
 
 .radioButtons input {
-    border: none;
-    margin: 1em;
-    border-radius: 1em;
-    height: 15px;
-    width: 15px;
-    transition: 0.5s;
+  border: none;
+  margin: 1em;
+  border-radius: 1em;
+  height: 15px;
+  width: 15px;
+  transition: 0.5s;
 }
 
 #uspText {
-
-    height: 100px;
-    color: #555555;
-
+  height: 100px;
+  color: #555555;
 }
 
 #button {
-    border: none;
-    font-family: 'poppins';
-    padding: 0.5em 2em;
-    border-radius: 1.5em;
-    color: white;
-    font-size: 16px;
-    background-color: #8D74B1;
-    cursor: pointer;
-    transition: 0.5s;
-    text-decoration: none;
-
+  border: none;
+  font-family: "poppins";
+  padding: 0.5em 2em;
+  border-radius: 1.5em;
+  color: white;
+  font-size: 16px;
+  background-color: #8d74b1;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
 }
 
 #button:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* ---------------- Home Scherm ---------------------- */
 
 .circle {
-    fill: linear-gradient(#3F51B5, #CDD5E9);
-    animation: bounce 3s infinite linear;
-
+  fill: linear-gradient(#3f51b5, #cdd5e9);
+  animation: bounce 3s infinite linear;
 }
 
 .chapterCircle {
-    fill: #e2e2e2;
-    transition: 0.8s;
-
+  fill: #e2e2e2;
+  transition: 0.8s;
 }
 
 .chapterCircle:hover {
-    fill: #8D74B1;
+  fill: #8d74b1;
 }
 
 .chapterCircleText:hover {
-    fill: #8D74B1;
-
+  fill: #8d74b1;
 }
 
 .chapterCircleInactive {
-    fill: #bbbbbb;
-    cursor: auto;
+  fill: #bbbbbb;
+  cursor: auto;
 }
-
 
 /* --------------- intro scherm -------------------- */
 
 .background-imageIntro {
-    background: url("/background.png"), linear-gradient(#FFFFFF, #FFFFFF);
-    background-repeat: no-repeat;
-    opacity: 60%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
+  background: url("/background.png"), linear-gradient(#ffffff, #ffffff);
+  background-repeat: no-repeat;
+  opacity: 60%;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
-
 .sideBar {
-    min-width: 3em;
-    width: 4em;
-    height: 100vh;
-    background-color: #3F51B5;
-    position: absolute;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  min-width: 3em;
+  width: 4em;
+  height: 100vh;
+  background-color: #3f51b5;
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .sideBar p {
-
-    position: relative;
-    top: -20px;
-    color: #FFFFFF;
-
-
+  position: relative;
+  top: -20px;
+  color: #ffffff;
 }
 
 .sideBarItem {
-    margin-top: 0.5em;
-    color: #FFFFFF;
-    font-size: 22px;
-    transition: 0.5s;
-    justify-self: start;
-
+  margin-top: 0.5em;
+  color: #ffffff;
+  font-size: 22px;
+  transition: 0.5s;
+  justify-self: start;
 }
 
 .sideBarItem1 {
-    padding: 0.5em 1em 0.5em 1em;
-    margin-top: 25vh;
-    writing-mode: vertical-lr;
-    rotate: 180deg;
-    color: #FFFFFF;
-    font-size: 22px;
-
+  padding: 0.5em 1em 0.5em 1em;
+  margin-top: 25vh;
+  writing-mode: vertical-lr;
+  rotate: 180deg;
+  color: #ffffff;
+  font-size: 22px;
 }
 
 .sideBar img:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
-
-
 .topBar {
-
-    min-height: 3em;
-    height: 4em;
-    width: 100vw;
-    background-color: #CDD5E9;
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: -1;
+  min-height: 3em;
+  height: 4em;
+  width: 100vw;
+  background-color: #cdd5e9;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: -1;
 }
 
 .circleIcon {
-    width: 3em;
-    height: 3em;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    margin: 0.5em 1em 0.5em 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
+  width: 3em;
+  height: 3em;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 0.5em 1em 0.5em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .circleIcon img {
-    width: 50%;
-    height: 50%;
-
-
+  width: 50%;
+  height: 50%;
 }
 
 hr {
-    height: 3em;
-    rotate: 180deg;
-    border: 1px solid white;
+  height: 3em;
+  rotate: 180deg;
+  border: 1px solid white;
 }
 
 .chapterHeader {
-
-    Font-size: 3em;
-    font-weight: 100;
-    color: #3F51B5;
-    line-height: 40px;
+  font-size: 3em;
+  font-weight: 100;
+  color: #3f51b5;
+  line-height: 40px;
 }
 
-
 .continueContainer {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 3em;
-    font-size: 1em;
-    text-decoration: none;
-    transition: 0.5s;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 3em;
+  font-size: 1em;
+  text-decoration: none;
+  transition: 0.5s;
 }
 
 .continueContainer:hover {
-
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 
 .main {
-
-    padding: 8em;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    /* background-color: cadetblue; */
+  padding: 8em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* background-color: cadetblue; */
 }
-
 
 /*------------------- Chapter 1 scherm -------------------- */
 
 .subchapterCircle {
-    width: 50px;
-    height: 100%;
-    /* display: none; */
+  width: 50px;
+  height: 100%;
+  /* display: none; */
 }
 
 .subsubchapterCircle {
-    width: 100px;
-    height: 100%;
-    display: none;
+  width: 100px;
+  height: 100%;
+  display: none;
 }
 
 .chapterCircleText {
-    fill: #355275;
+  fill: #355275;
 }
 
 .subsubchapterCircle1_2 {
-    width: 100px;
-    height: 100%;
-    display: none;
+  width: 100px;
+  height: 100%;
+  display: none;
 }
 
 .subsubchapterCircle1_3 {
-    width: 100px;
-    height: 100%;
-    display: none;
+  width: 100px;
+  height: 100%;
+  display: none;
 }
 
 #lampje,
 #lampje2,
 #lampje3 {
-    transition: 0.5s;
-
+  transition: 0.5s;
 }
 
 #lampje:hover {
-    cursor: pointer;
-    transform: translateY(-17px) translateX(-10px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-17px) translateX(-10px) scale(1.1);
 }
 
 #lampje2:hover {
-    cursor: pointer;
-    transform: translateY(-30px) translateX(-10px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-30px) translateX(-10px) scale(1.1);
 }
 
 #lampje3:hover {
-    cursor: pointer;
-    transform: translateY(-40px) translateX(-10px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-40px) translateX(-10px) scale(1.1);
 }
 
 #tandwielen,
 #tandwielen2,
 #tandwielen3 {
-    transition: 0.5s;
-
+  transition: 0.5s;
 }
 
 #tandwielen:hover {
-    cursor: pointer;
-    transform: translateY(-20px) translateX(-5px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-20px) translateX(-5px) scale(1.1);
 }
 
 #tandwielen2:hover {
-    cursor: pointer;
-    transform: translateY(-32px) translateX(-5px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-32px) translateX(-5px) scale(1.1);
 }
 
 #tandwielen3:hover {
-    cursor: pointer;
-    transform: translateY(-44px) translateX(-5px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-44px) translateX(-5px) scale(1.1);
 }
-
 
 #mindset,
 #mindset2,
 #mindset3 {
-    transition: 0.5s;
-
+  transition: 0.5s;
 }
 
 #mindset:hover {
-    cursor: pointer;
-    transform: translateY(-30px) translateX(-5px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-30px) translateX(-5px) scale(1.1);
 }
 
 #mindset2:hover {
-    cursor: pointer;
-    transform: translateY(-42px) translateX(-5px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-42px) translateX(-5px) scale(1.1);
 }
 
 #mindset3:hover {
-    cursor: pointer;
-    transform: translateY(-52px) translateX(-5px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-52px) translateX(-5px) scale(1.1);
 }
-
 
 #potlood_icoon,
 #potlood_icoon2,
 #potlood_icoon3 {
-    transition: 0.5s;
-
+  transition: 0.5s;
 }
 
 #potlood_icoon:hover {
-    cursor: pointer;
-    transform: translateY(-30px) translateX(-10px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-30px) translateX(-10px) scale(1.1);
 }
 
 #potlood_icoon2:hover {
-    cursor: pointer;
-    transform: translateY(-42px) translateX(-10px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-42px) translateX(-10px) scale(1.1);
 }
 
 #potlood_icoon3:hover {
-    cursor: pointer;
-    transform: translateY(-55px) translateX(-10px) scale(1.1);
+  cursor: pointer;
+  transform: translateY(-55px) translateX(-10px) scale(1.1);
 }
 
-
 #groene_outline {
-    display: none;
+  display: none;
 }
 
 #oranje_outline {
-    display: none;
+  display: none;
 }
 
 #blauwe_outline {
-    display: none;
+  display: none;
 }
 
 #gele_outline {
-    display: none;
+  display: none;
 }
-
-
 
 #cirkel_1,
 #cirkel_2,
 #cirkel_3,
 #cirkel_4 {
-    cursor: pointer;
+  cursor: pointer;
 }
-
-
 
 #circle1,
 #circle2,
 #circle3 {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #circle3_1,
@@ -518,150 +466,137 @@ hr {
 #circle3_3,
 #circle3_4,
 #circle3_5 {
-    cursor: pointer;
+  cursor: pointer;
 }
-
-
-
-
 
 /*------------------- Main Menu scherm-------------------- */
 
 .gradientBG {
-    position: absolute;
-    z-index: -1;
-    height: 345px;
-    width: 345px;
+  position: absolute;
+  z-index: -1;
+  height: 345px;
+  width: 345px;
 
-    opacity: 75%;
-
+  opacity: 75%;
 }
 
 .gradientBGChapter {
-    position: absolute;
-    z-index: -1;
-    height: 60px;
-    width: 60px;
-    top: 450px;
-    margin-right: 97px;
-    opacity: 75%;
-
+  position: absolute;
+  z-index: -1;
+  height: 60px;
+  width: 60px;
+  top: 450px;
+  margin-right: 97px;
+  opacity: 75%;
 }
 
-.chapterCircleTextInactive{
-    fill:#355275;
-    cursor: auto;
-  
+.chapterCircleTextInactive {
+  fill: #355275;
+  cursor: auto;
 }
 
-.chapterCircleLocked{
-    fill: #e2e2e2;
-    transition: 0.8s;
+.chapterCircleLocked {
+  fill: #e2e2e2;
+  transition: 0.8s;
 }
 
-.chapter2Text{
-    fill: #355275;
+.chapter2Text {
+  fill: #355275;
 }
 
-.chapter2Circle{
-    fill: #8D74B1;
+.chapter2Circle {
+  fill: #8d74b1;
 }
 
-.chapter2CircleText{
-    fill: #FFFFFF;
+.chapter2CircleText {
+  fill: #ffffff;
 }
-
-
-
-
 
 /* inlog scherm */
 
-.inputStyle{
-    border-style: none;
-    background: none;
-    padding: 0em 0em 0.5em 0.5em;
-    font-size: 1em;
-    color: #8D74B1;
+.inputStyle {
+  border-style: none;
+  background: none;
+  padding: 0em 0em 0.5em 0.5em;
+  font-size: 1em;
+  color: #8d74b1;
 }
 
-.inputStyle:focus{
-outline: none;
-font-size: 1em;
+.inputStyle:focus {
+  outline: none;
+  font-size: 1em;
 }
 
-.formContainer{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
 }
 
-.labelStyle{
-    border-bottom: 1px solid #555555;
-    margin: 2em 0em ;
-    color: #555555;
-    font-size: 1.2em;
+.labelStyle {
+  border-bottom: 1px solid #555555;
+  margin: 2em 0em;
+  color: #555555;
+  font-size: 1.2em;
 }
 
-.labelStyleSignup{
-    border-bottom: 1px solid #555555;
-    margin-top: 2em ;
-    color: #555555;
-    font-size: 1.2em;
+.labelStyleSignup {
+  border-bottom: 1px solid #555555;
+  margin-top: 2em;
+  color: #555555;
+  font-size: 1.2em;
 }
 
-#ForgotInfo{
-
-    font-size: 0.8em;
-    color: #555555;
-    text-decoration: none;
-    margin-bottom: 3em;
+#ForgotInfo {
+  font-size: 0.8em;
+  color: #555555;
+  text-decoration: none;
+  margin-bottom: 3em;
 }
 
-#accountCreation{
-    font-size: 0.8em;
-    color: #555555;
-    text-decoration: none;
-    margin-bottom: 0.5em;
+#accountCreation {
+  font-size: 0.8em;
+  color: #555555;
+  text-decoration: none;
+  margin-bottom: 0.5em;
 }
 
-#ForgotInfo:hover,#accountCreation:hover{
-    color: #8D74B1;
+#ForgotInfo:hover,
+#accountCreation:hover {
+  color: #8d74b1;
 }
 
 .background-imageLogin {
-    background: url("/background.png"), linear-gradient(#3F51B5, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 30%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
+  background: url("/background.png"), linear-gradient(#3f51b5, #ffffff);
+  background-repeat: no-repeat;
+  opacity: 30%;
+  background-size: 100vw 100vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
-#inlogButton{
-    border: none;
-    font-family: 'poppins';
-    padding: 0.5em 2em;
-    border-radius: 1.5em;
-    color: white;
-    font-size: 16px;
-    background-color: #8D74B1;
-    cursor: pointer;
-    transition: 0.5s;
-    text-decoration: none;
-    width: 120px;
-    align-self: center;
-    margin-top: 2.5em;
-
+#inlogButton {
+  border: none;
+  font-family: "poppins";
+  padding: 0.5em 2em;
+  border-radius: 1.5em;
+  color: white;
+  font-size: 16px;
+  background-color: #8d74b1;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
+  width: 120px;
+  align-self: center;
+  margin-top: 2.5em;
 }
 
 #inlogButton:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-#signUpTitle{
-    margin-bottom: 1em;
+#signUpTitle {
+  margin-bottom: 1em;
 }

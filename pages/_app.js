@@ -1,11 +1,7 @@
-import "../styles/global.css"
+import "../styles/global.css";
 
 function Website({ Component, pageProps }) {
-    return (
-
-        <Component {...pageProps} />
-
-    )
+  return <Component {...pageProps} />;
 }
 
-export default Website
+export default Website;

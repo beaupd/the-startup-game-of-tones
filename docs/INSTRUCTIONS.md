@@ -3,9 +3,11 @@
 ![The Game of Tones](https://github.com/fdnd-task/the-game-of-tones-chapterpage/blob/main/docs/the-game-of-tones.jpg?raw=true)
 
 ## Context
+
 Deze leertaak hoort bij sprint The Startup Dit is een autonomous leertaak die je individueel uitvoert voor de The Game of Tones.
 
 ## Briefing
+
 The Game of Tones is een interactieve lesmethode muziekimprovisatie die zelfstandig gebruikt kan worden op een tablet of computer/laptop (en later wellicht mobiel). Aanvankelijk schreef de opdrachtgever deze methode in boekvorm, maar bij een digitale versie lagen veel kansen.
 
 Van deze digitale versie is een interactief prototype gemaakt in een prototypeprogramma, die in code uitgewerkt moet worden. Hiervoor zullen de basisschermen als uitgangspunt worden genomen.
@@ -56,22 +58,29 @@ Je leert hoe je een website maakt voor een startende onderneming
 * vanaf 13:00 uur
 
 ## Werkwijze
+
 Deze opdracht gaat over alle fases van de DLC [analyseren](#analyseren), [ontwerpen](#ontwerpen), [bouwen](#bouwen), [integreren](#integreren) en [testen](#testen).
 
 ### Analyseren
-*In de analysefase inventariseer je wat er moet gebeuren om een taak uit te voeren.*
+
+_In de analysefase inventariseer je wat er moet gebeuren om een taak uit te voeren._
 
 ### Ontwerpen
-*In de ontwerpfase neem je ontwerpbeslissingen en zorg je dat je precies weet wat je moet gaan bouwen.*
+
+_In de ontwerpfase neem je ontwerpbeslissingen en zorg je dat je precies weet wat je moet gaan bouwen._
 
 ### Bouwen
-*In de bouwfase realiseer je de beslissingen uit de ontwerpfase.*
+
+_In de bouwfase realiseer je de beslissingen uit de ontwerpfase._
 
 ### Integreren
-*In de integratiefase voer je de aanpassingen door zodat iedereen ze kan zien.*
+
+_In de integratiefase voer je de aanpassingen door zodat iedereen ze kan zien._
 
 ### Testen
-*In de testfase controleer je of jouw aanpassingen werken zoals bedoeld.*
+
+_In de testfase controleer je of jouw aanpassingen werken zoals bedoeld._
 
 ## Criteria
-*Definitions of done*
+
+_Definitions of done_
