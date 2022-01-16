@@ -1,11 +1,11 @@
-/* tailwind directives */
+/* Importeer fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Poppins&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Importeer fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Poppins&display=swap");
 
 body {
     margin: 0;
@@ -47,6 +47,7 @@ span {
 
 p {
     font-family: "Assistant";
+    margin: 1em 0;
 }
 
 .musicNote {
