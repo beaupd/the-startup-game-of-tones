@@ -1,15 +1,12 @@
-const DefaultLayout = ({children}) => {
-    return (
-        <>
-            <main>
-                {children}
-            </main>
+const DefaultLayout = ({ children }) => {
+  return (
+    <>
+      <main>
+          {children}
+          </main>
+      <nav>navigation</nav>
+    </>
+  );
+};
 
-            <nav>
-                navigation
-            </nav>
-        </>
-    )
-}
-
-export default DefaultLayout
+export default DefaultLayout;

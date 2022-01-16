@@ -1,16 +1,13 @@
-/* tailwind directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Importeer fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant&family=Poppins&display=swap');
+
 
 body {
     margin: 0;
     padding: 0;
-    font-family: "poppins", sans-serif;
+    font-family: 'poppins', sans-serif;
+
 }
 
 h1,
@@ -18,22 +15,24 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: "poppins";
+    font-family: 'poppins';
 }
 
 h1 {
-    font-size: 32px;
-    line-height: 10px;
-    letter-spacing: -3%;
+    Font-size: 32px;
+    Line-height: 10px;
+    Letter-spacing: -3%;
     margin: 0;
     padding: 0;
     font-weight: 100;
 }
 
 h2 {
-    font-size: 24px;
+    Font-size: 24px;
     font-weight: 100;
     text-align: center;
+
+
 }
 
 a {
@@ -43,10 +42,11 @@ a {
 span {
     font-weight: bold;
     font-size: 25px;
+
 }
 
 p {
-    font-family: "Assistant";
+    font-family: 'Assistant';
 }
 
 .musicNote {
@@ -56,8 +56,10 @@ p {
 }
 
 @keyframes bounce {
+
     0% {
         transform: translateY(15px);
+
     }
 
     20% {
@@ -70,6 +72,7 @@ p {
 
     60% {
         transform: translateY(0px);
+
     }
 
     80% {
@@ -78,11 +81,14 @@ p {
 
     100% {
         transform: translateY(15px);
+
+
     }
+
 }
 
 .background-image {
-    background: url("/background.png"), linear-gradient(#3f51b5, #ffffff);
+    background: url("/background.png"), linear-gradient(#3F51B5, #ffffff);
     background-repeat: no-repeat;
     opacity: 50%;
     background-size: 100vw 100vh;
@@ -90,10 +96,11 @@ p {
     height: 100%;
     position: absolute;
     z-index: -1;
+
 }
 
 .background-image1 {
-    background: url("/background.png"), linear-gradient(#54ba54, #ffffff);
+    background: url("/background.png"), linear-gradient(#54BA54, #ffffff);
     background-repeat: no-repeat;
     opacity: 50%;
     background-size: 100vw 100vh;
@@ -101,10 +108,11 @@ p {
     height: 100%;
     position: absolute;
     z-index: -1;
+
 }
 
 .background-image2 {
-    background: url("/background.png"), linear-gradient(#ff9400, #ffffff);
+    background: url("/background.png"), linear-gradient(#FF9400, #ffffff);
     background-repeat: no-repeat;
     opacity: 50%;
     background-size: 100vw 100vh;
@@ -112,6 +120,7 @@ p {
     height: 100%;
     position: absolute;
     z-index: -1;
+
 }
 
 .background-imageHome {
@@ -124,6 +133,7 @@ p {
     position: absolute;
     z-index: -1;
 }
+
 
 .para {
     font-size: 21px;
@@ -155,21 +165,24 @@ p {
 }
 
 #uspText {
+
     height: 100px;
     color: #555555;
+
 }
 
 #button {
     border: none;
-    font-family: "poppins";
+    font-family: 'poppins';
     padding: 0.5em 2em;
     border-radius: 1.5em;
     color: white;
     font-size: 16px;
-    background-color: #8d74b1;
+    background-color: #8D74B1;
     cursor: pointer;
     transition: 0.5s;
     text-decoration: none;
+
 }
 
 #button:visited {
@@ -183,21 +196,24 @@ p {
 /* ---------------- Home Scherm ---------------------- */
 
 .circle {
-    fill: linear-gradient(#3f51b5, #cdd5e9);
+    fill: linear-gradient(#3F51B5, #CDD5E9);
     animation: bounce 3s infinite linear;
+
 }
 
 .chapterCircle {
     fill: #e2e2e2;
     transition: 0.8s;
+
 }
 
 .chapterCircle:hover {
-    fill: #8d74b1;
+    fill: #8D74B1;
 }
 
 .chapterCircleText:hover {
-    fill: #8d74b1;
+    fill: #8D74B1;
+
 }
 
 .chapterCircleInactive {
@@ -205,10 +221,11 @@ p {
     cursor: auto;
 }
 
+
 /* --------------- intro scherm -------------------- */
 
 .background-imageIntro {
-    background: url("/background.png"), linear-gradient(#ffffff, #ffffff);
+    background: url("/background.png"), linear-gradient(#FFFFFF, #FFFFFF);
     background-repeat: no-repeat;
     opacity: 60%;
     background-size: 100vw 100vh;
@@ -218,11 +235,12 @@ p {
     z-index: -1;
 }
 
+
 .sideBar {
     min-width: 3em;
     width: 4em;
     height: 100vh;
-    background-color: #3f51b5;
+    background-color: #3F51B5;
     position: absolute;
     display: inline-flex;
     flex-direction: column;
@@ -231,17 +249,21 @@ p {
 }
 
 .sideBar p {
+
     position: relative;
     top: -20px;
-    color: #ffffff;
+    color: #FFFFFF;
+
+
 }
 
 .sideBarItem {
     margin-top: 0.5em;
-    color: #ffffff;
+    color: #FFFFFF;
     font-size: 22px;
     transition: 0.5s;
     justify-self: start;
+
 }
 
 .sideBarItem1 {
@@ -249,8 +271,9 @@ p {
     margin-top: 25vh;
     writing-mode: vertical-lr;
     rotate: 180deg;
-    color: #ffffff;
+    color: #FFFFFF;
     font-size: 22px;
+
 }
 
 .sideBar img:hover {
@@ -258,11 +281,14 @@ p {
     transform: scale(1.1);
 }
 
+
+
 .topBar {
+
     min-height: 3em;
     height: 4em;
     width: 100vw;
-    background-color: #cdd5e9;
+    background-color: #CDD5E9;
     position: absolute;
     top: 0;
     display: flex;
@@ -274,17 +300,21 @@ p {
 .circleIcon {
     width: 3em;
     height: 3em;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 50%;
     margin: 0.5em 1em 0.5em 1em;
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .circleIcon img {
     width: 50%;
     height: 50%;
+
+
 }
 
 hr {
@@ -294,11 +324,13 @@ hr {
 }
 
 .chapterHeader {
-    font-size: 3em;
+
+    Font-size: 3em;
     font-weight: 100;
-    color: #3f51b5;
+    color: #3F51B5;
     line-height: 40px;
 }
+
 
 .continueContainer {
     display: flex;
@@ -312,16 +344,20 @@ hr {
 }
 
 .continueContainer:hover {
+
     transform: scale(1.1);
 }
 
+
 .main {
+
     padding: 8em;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     /* background-color: cadetblue; */
 }
+
 
 /*------------------- Chapter 1 scherm -------------------- */
 
@@ -357,6 +393,7 @@ hr {
 #lampje2,
 #lampje3 {
     transition: 0.5s;
+
 }
 
 #lampje:hover {
@@ -378,6 +415,7 @@ hr {
 #tandwielen2,
 #tandwielen3 {
     transition: 0.5s;
+
 }
 
 #tandwielen:hover {
@@ -395,10 +433,12 @@ hr {
     transform: translateY(-44px) translateX(-5px) scale(1.1);
 }
 
+
 #mindset,
 #mindset2,
 #mindset3 {
     transition: 0.5s;
+
 }
 
 #mindset:hover {
@@ -416,10 +456,12 @@ hr {
     transform: translateY(-52px) translateX(-5px) scale(1.1);
 }
 
+
 #potlood_icoon,
 #potlood_icoon2,
 #potlood_icoon3 {
     transition: 0.5s;
+
 }
 
 #potlood_icoon:hover {
@@ -437,6 +479,7 @@ hr {
     transform: translateY(-55px) translateX(-10px) scale(1.1);
 }
 
+
 #groene_outline {
     display: none;
 }
@@ -453,12 +496,16 @@ hr {
     display: none;
 }
 
+
+
 #cirkel_1,
 #cirkel_2,
 #cirkel_3,
 #cirkel_4 {
     cursor: pointer;
 }
+
+
 
 #circle1,
 #circle2,
@@ -474,6 +521,10 @@ hr {
     cursor: pointer;
 }
 
+
+
+
+
 /*------------------- Main Menu scherm-------------------- */
 
 .gradientBG {
@@ -483,6 +534,7 @@ hr {
     width: 345px;
 
     opacity: 75%;
+
 }
 
 .gradientBGChapter {
@@ -493,11 +545,13 @@ hr {
     top: 450px;
     margin-right: 97px;
     opacity: 75%;
+
 }
 
 .chapterCircleTextInactive {
     fill: #355275;
     cursor: auto;
+
 }
 
 .chapterCircleLocked {
@@ -510,12 +564,16 @@ hr {
 }
 
 .chapter2Circle {
-    fill: #8d74b1;
+    fill: #8D74B1;
 }
 
 .chapter2CircleText {
-    fill: #ffffff;
+    fill: #FFFFFF;
 }
+
+
+
+
 
 /* inlog scherm */
 
@@ -524,18 +582,21 @@ hr {
     background: none;
     padding: 0em 0em 0.5em 0.5em;
     font-size: 1em;
-    color: #8d74b1;
+    color: #8D74B1;
 }
 
 .inputStyle:focus {
     outline: none;
     font-size: 1em;
+
+
 }
 
 .formContainer {
     display: flex;
     flex-direction: column;
     width: 400px;
+
 }
 
 .labelStyle {
@@ -543,7 +604,9 @@ hr {
     margin: 2em 0em;
     color: #555555;
     font-size: 1.2em;
+
 }
+
 
 .labelStyleSignup {
     border-bottom: 1px solid #555555;
@@ -553,6 +616,7 @@ hr {
 }
 
 #ForgotInfo {
+
     font-size: 0.8em;
     color: #555555;
     text-decoration: none;
@@ -568,11 +632,11 @@ hr {
 
 #ForgotInfo:hover,
 #accountCreation:hover {
-    color: #8d74b1;
+    color: #8D74B1;
 }
 
 .background-imageLogin {
-    background: url("/background.png"), linear-gradient(#3f51b5, #ffffff);
+    background: url("/background.png"), linear-gradient(#3F51B5, #ffffff);
     background-repeat: no-repeat;
     opacity: 30%;
     background-size: 100vw 100vh;
@@ -580,22 +644,24 @@ hr {
     height: 100%;
     position: absolute;
     z-index: -1;
+
 }
 
 #inlogButton {
     border: none;
-    font-family: "poppins";
+    font-family: 'poppins';
     padding: 0.5em 2em;
     border-radius: 1.5em;
     color: white;
     font-size: 16px;
-    background-color: #8d74b1;
+    background-color: #8D74B1;
     cursor: pointer;
     transition: 0.5s;
     text-decoration: none;
     width: 120px;
     align-self: center;
     margin-top: 2.5em;
+
 }
 
 #inlogButton:hover {
