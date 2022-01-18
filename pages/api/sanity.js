@@ -1,7 +1,7 @@
 import Credentials from "next-auth/providers/credentials";
 import { getUserByEmailQuery } from "./auth/queries";
 import argon2 from "argon2";
-import { uuid } from "@sanity/uuid";
+import { v4 as uuid } from "uuid";
 import createClient from "@sanity/client";
 import axios from "axios";
 
