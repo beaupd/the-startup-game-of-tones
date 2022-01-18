@@ -13,7 +13,7 @@ const RegisterPage = () => {
     const [disabled, setDisabled] = useState(true);
 
     const signUp = async (data) => {
-        const res = await axios.post("/api/sanity", {
+        const res = await axios.post("/api/signUp", {
             ...data,
         });
 

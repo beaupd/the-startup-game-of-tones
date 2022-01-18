@@ -9,7 +9,7 @@ export const client = createClient({
     dataset: process.env.SANITY_DATASET,
     token: process.env.SANITY_API_TOKEN,
     apiVersion: "2021-08-31",
-    useCdn: process.env.NODE_ENV === "production",
+    useCdn: false,
 });
 
 export async function getSanityContent({ query, variables = {} }) {
@@ -57,8 +57,6 @@ export const signUpHandler = (client) => async (req, res) => {
         image: newUser.image,
     });
 };
-
-export default signUpHandler(client);
 
 export const SanityCredentials = (client) =>
     Credentials({

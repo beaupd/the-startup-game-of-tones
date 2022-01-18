@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote";
 import DefaultLayout from "../components/content/layouts/DefaultLayout";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
+import Link from "next/link";
 
 const signUp = async (data) => {
     const res = await axios.post("/api/sanity", {
@@ -22,25 +23,22 @@ const Page = ({ props }) => {
     const { title, color, content } = props;
 
     if (!session) {
-        // not signed in
         return (
-            <section className="p-20">
-                <h1>Not signed in</h1>
-                <button onClick={() => signIn()}>Sign in</button>
-                <button
-                    className="p-20"
-                    onClick={() => {
-                        signUp();
-                    }}
-                >
-                    Sign Up
-                </button>
+            <section className="flex items-center justify-center w-full h-full absolute left-0 top-0 flex-col">
+                <h1 className="p-10">Unauthorized</h1>
+                <Link href="/login">
+                    <a className="px-5 py-2 bg-black text-white rounded uppercase">
+                        login
+                    </a>
+                </Link>
             </section>
         );
     }
-
     return (
         <Les sideBarTitle={title} type={color}>
+            <h1>
+                <button onClick={() => signOut()}>{session.user.name}</button>
+            </h1>
             <MDXRemote {...content} components={components} />
         </Les>
     );

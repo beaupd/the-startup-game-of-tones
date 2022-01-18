@@ -10,6 +10,8 @@ import argon2 from "argon2";
 
 /** @return { import("next-auth/adapters").Adapter } */
 export default function SanityAdapter(client, options = {}) {
+    const hashToken = (token) => argon2.hash(`${token}${secret}`);
+
     return {
         displayName: "Sanity",
 
@@ -87,7 +89,8 @@ export default function SanityAdapter(client, options = {}) {
             };
         },
         async deleteUser(userId) {
-            return;
+            // delete an user
+            return; // implement
         },
         async linkAccount(
             userId,

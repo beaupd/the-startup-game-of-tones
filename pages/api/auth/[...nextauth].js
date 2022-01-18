@@ -15,9 +15,12 @@ export default NextAuth({
         }),
         SanityCredentials(client),
     ],
-    session: {
-        jwt: true,
-    },
     secret: process.env.SECRET,
+    session: {
+        strategy: "jwt",
+    },
+    theme: {
+        colorScheme: "light",
+    },
     adapter: SanityAdapter(client),
 });
