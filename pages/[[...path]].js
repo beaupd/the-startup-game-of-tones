@@ -2,82 +2,102 @@ import { getSanityContent } from "./api/sanity";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import DefaultLayout from "../components/content/layouts/DefaultLayout";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import Les from "../components/layouts/Les";
 
 const components = { DefaultLayout };
 
 const Page = ({ props }) => {
-  const { title, color, content } = props;
+    const { data: session } = useSession();
+    const { title, color, content } = props;
 
-  return (
-    <Les sideBarTitle={title} type={color}>
-      <MDXRemote {...content} components={components} />
-    </Les>
-  );
+    if (!session) {
+        // not signed in
+        return (
+            <section className="p-20">
+                <h1>Not signed in</h1>
+                <button onClick={() => signIn()}>Sign in</button>
+                <button
+                    className="p-20"
+                    onClick={() => {
+                        return;
+                    }}
+                >
+                    Sign Up
+                </button>
+            </section>
+        );
+    }
+
+    return (
+        <Les sideBarTitle={title} type={color}>
+            <MDXRemote {...content} components={components} />
+        </Les>
+    );
 };
 
 export async function getStaticProps({ params }) {
-  let props;
-  let data;
-  let vol_idx;
-  let chap_idx;
-  let sub_idx;
-  let les_type;
-  let content;
-  let serialized;
+    let props;
+    let data;
+    let vol_idx;
+    let chap_idx;
+    let sub_idx;
+    let les_type;
+    let content;
+    let serialized;
 
-  // console.log(params.path);
-  // console.log();
-  if (params.path.some((path) => path.includes("volume"))) {
-    // its a volume or inside a volume
-    // console.log(params.path.length);
-    switch (params.path.length) {
-      case 1: // its a volume index
-        data = await getSanityContent({
-          query: `
+    // console.log(params.path);
+    // console.log();
+    if (params.path.some((path) => path.includes("volume"))) {
+        // its a volume or inside a volume
+        // console.log(params.path.length);
+        switch (params.path.length) {
+            case 1: // its a volume index
+                data = await getSanityContent({
+                    query: `
                     query {
                         allVolume {
                           intro{title color content}
                         }
                       }`,
-        });
-        // console.log(params.path[0]);
-        vol_idx = params.path[0].replace("volume_", "") - 1;
-        // console.log(data.allVolume[vol_idx]);
-        content = data.allVolume[vol_idx].intro;
-        serialized = await serialize(content.content);
-        props = {
-          title: content.title,
-          color: content.color,
-          content: serialized,
-        }; // get content of intro of volume
-        break;
-      case 2: // its a chapter index
-        data = await getSanityContent({
-          query: `
+                });
+                // console.log(params.path[0]);
+                vol_idx = params.path[0].replace("volume_", "") - 1;
+                // console.log(data.allVolume[vol_idx]);
+                content = data.allVolume[vol_idx].intro;
+                serialized = await serialize(content.content);
+                props = {
+                    title: content.title,
+                    color: content.color,
+                    content: serialized,
+                }; // get content of intro of volume
+                break;
+            case 2: // its a chapter index
+                data = await getSanityContent({
+                    query: `
                     query {
                         allVolume {
                           chapters{intro{title color content}}
                         }
                       }`,
-        });
-        // console.log(params.path[0]);
-        vol_idx = params.path[0].replace("volume_", "") - 1;
-        chap_idx = params.path[1].replace("chapter_", "") - 1;
-        // console.log(chap_idx);
+                });
+                // console.log(params.path[0]);
+                vol_idx = params.path[0].replace("volume_", "") - 1;
+                chap_idx = params.path[1].replace("chapter_", "") - 1;
+                // console.log(chap_idx);
 
-        content = data.allVolume[vol_idx].chapters[chap_idx].intro;
-        serialized = await serialize(content.content);
-        props = {
-          title: content.title,
-          color: content.color,
-          content: serialized,
-        }; // get content of intro of volume
-        break;
-      case 3: // its theory of subchapter
-        data = await getSanityContent({
-          query: `
+                content = data.allVolume[vol_idx].chapters[chap_idx].intro;
+                serialized = await serialize(content.content);
+                props = {
+                    title: content.title,
+                    color: content.color,
+                    content: serialized,
+                }; // get content of intro of volume
+                break;
+            case 3: // its theory of subchapter
+                data = await getSanityContent({
+                    query: `
                     query {
                         allVolume {
                           chapters{
@@ -87,26 +107,27 @@ export async function getStaticProps({ params }) {
                           }
                         }
                       }`,
-        });
-        // console.log(params.path[0]);
-        vol_idx = params.path[0].replace("volume_", "") - 1;
-        chap_idx = params.path[1].replace("chapter_", "") - 1;
-        sub_idx = params.path[2].replace("subchapter_", "") - 1;
-        // console.log(chap_idx);
+                });
+                // console.log(params.path[0]);
+                vol_idx = params.path[0].replace("volume_", "") - 1;
+                chap_idx = params.path[1].replace("chapter_", "") - 1;
+                sub_idx = params.path[2].replace("subchapter_", "") - 1;
+                // console.log(chap_idx);
 
-        content =
-          data.allVolume[vol_idx].chapters[chap_idx].subchapters[sub_idx]
-            .theory;
-        serialized = await serialize(content.content);
-        props = {
-          title: content.title,
-          color: content.color,
-          content: serialized,
-        }; // get content of intro of volume
-        break;
-      case 4: // its a lesson in subchapter
-        data = await getSanityContent({
-          query: `
+                content =
+                    data.allVolume[vol_idx].chapters[chap_idx].subchapters[
+                        sub_idx
+                    ].theory;
+                serialized = await serialize(content.content);
+                props = {
+                    title: content.title,
+                    color: content.color,
+                    content: serialized,
+                }; // get content of intro of volume
+                break;
+            case 4: // its a lesson in subchapter
+                data = await getSanityContent({
+                    query: `
                     query {
                         allVolume {
                           chapters{
@@ -119,40 +140,40 @@ export async function getStaticProps({ params }) {
                           }
                         }
                       }`,
-        });
-        // console.log(params.path[0]);
-        vol_idx = params.path[0].replace("volume_", "") - 1;
-        chap_idx = params.path[1].replace("chapter_", "") - 1;
-        sub_idx = params.path[2].replace("subchapter_", "") - 1;
-        les_type = params.path[3];
-        // console.log();
-        content =
-          data.allVolume[vol_idx].chapters[chap_idx].subchapters[sub_idx][
-            les_type
-          ];
-        serialized = await serialize(content.content);
-        props = {
-          title: content.title,
-          color: content.color,
-          content: serialized,
-        }; // get content of intro of volume
-        break;
+                });
+                // console.log(params.path[0]);
+                vol_idx = params.path[0].replace("volume_", "") - 1;
+                chap_idx = params.path[1].replace("chapter_", "") - 1;
+                sub_idx = params.path[2].replace("subchapter_", "") - 1;
+                les_type = params.path[3];
+                // console.log();
+                content =
+                    data.allVolume[vol_idx].chapters[chap_idx].subchapters[
+                        sub_idx
+                    ][les_type];
+                serialized = await serialize(content.content);
+                props = {
+                    title: content.title,
+                    color: content.color,
+                    content: serialized,
+                }; // get content of intro of volume
+                break;
+        }
     }
-  }
 
-  return {
-    props: {
-      props,
-    },
-  };
+    return {
+        props: {
+            props,
+        },
+    };
 }
 
 export async function getStaticPaths() {
-  // CMS https://gotcms.sanity.studio/desk
+    // CMS https://gotcms.sanity.studio/desk
 
-  // get only all the different volumes
-  const data = await getSanityContent({
-    query: `
+    // get only all the different volumes
+    const data = await getSanityContent({
+        query: `
         query AllPages {
             allVolume {
                 intro{title, color, content}
@@ -168,59 +189,59 @@ export async function getStaticPaths() {
             }
         }
     `,
-  });
-
-  const paths = [];
-
-  // paths.push(({ params: { path: "howdie" } }))
-  // console.log(data.allVolume)
-
-  data.allVolume.map((vol, i) => {
-    let vol_path = `volume_${i + 1}`;
-    paths.push({ params: { path: [vol_path] } });
-    vol.chapters.map((chap, j) => {
-      let chap_path = `chapter_${j + 1}`;
-      paths.push({ params: { path: [vol_path, chap_path] } });
-
-      chap.subchapters.map((sub, k) => {
-        let sub_path = `subchapter_${k + 1}`;
-        sub.theory != null &&
-          paths.push({
-            params: {
-              path: [vol_path, chap_path, sub_path, "theory"],
-            },
-          }) &&
-          paths.push({
-            params: { path: [vol_path, chap_path, sub_path] },
-          });
-        sub.practice != null &&
-          paths.push({
-            params: {
-              path: [vol_path, chap_path, sub_path, "practice"],
-            },
-          });
-        sub.action != null &&
-          paths.push({
-            params: {
-              path: [vol_path, chap_path, sub_path, "action"],
-            },
-          });
-        sub.exercise != null &&
-          paths.push({
-            params: {
-              path: [vol_path, chap_path, sub_path, "exercise"],
-            },
-          });
-      });
     });
-  });
 
-  // console.log(paths);
+    const paths = [];
 
-  return {
-    paths: [...paths],
-    fallback: false,
-  };
+    // paths.push(({ params: { path: "howdie" } }))
+    // console.log(data.allVolume)
+
+    data.allVolume.map((vol, i) => {
+        let vol_path = `volume_${i + 1}`;
+        paths.push({ params: { path: [vol_path] } });
+        vol.chapters.map((chap, j) => {
+            let chap_path = `chapter_${j + 1}`;
+            paths.push({ params: { path: [vol_path, chap_path] } });
+
+            chap.subchapters.map((sub, k) => {
+                let sub_path = `subchapter_${k + 1}`;
+                sub.theory != null &&
+                    paths.push({
+                        params: {
+                            path: [vol_path, chap_path, sub_path, "theory"],
+                        },
+                    }) &&
+                    paths.push({
+                        params: { path: [vol_path, chap_path, sub_path] },
+                    });
+                sub.practice != null &&
+                    paths.push({
+                        params: {
+                            path: [vol_path, chap_path, sub_path, "practice"],
+                        },
+                    });
+                sub.action != null &&
+                    paths.push({
+                        params: {
+                            path: [vol_path, chap_path, sub_path, "action"],
+                        },
+                    });
+                sub.exercise != null &&
+                    paths.push({
+                        params: {
+                            path: [vol_path, chap_path, sub_path, "exercise"],
+                        },
+                    });
+            });
+        });
+    });
+
+    // console.log(paths);
+
+    return {
+        paths: [...paths],
+        fallback: false,
+    };
 }
 
 export default Page;
