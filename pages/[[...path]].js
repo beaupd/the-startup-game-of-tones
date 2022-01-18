@@ -3,14 +3,22 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import DefaultLayout from "../components/content/layouts/DefaultLayout";
 import { useSession, signIn, signOut } from "next-auth/react";
-import signUp from "./api/sanity";
+import axios from "axios";
+
+const signUp = async (data) => {
+    const res = await axios.post("/api/sanity", {
+        ...data,
+    });
+
+    return res.data;
+};
 
 import Les from "../components/layouts/Les";
 
 const components = { DefaultLayout };
 
 const Page = ({ props }) => {
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
     const { title, color, content } = props;
 
     if (!session) {
