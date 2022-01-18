@@ -3,7 +3,6 @@ import { getUserByEmailQuery } from "./auth/queries";
 import argon2 from "argon2";
 import { v4 as uuid } from "uuid";
 import createClient from "@sanity/client";
-import axios from "axios";
 
 export const client = createClient({
     projectId: process.env.SANITY_PROJECT_ID,
@@ -57,14 +56,6 @@ export const signUpHandler = (client) => async (req, res) => {
         name: newUser.name,
         image: newUser.image,
     });
-};
-
-export const signUp = async (data) => {
-    const res = await axios.post("/api/sanity", {
-        ...data,
-    });
-
-    return res.data;
 };
 
 export default signUpHandler(client);

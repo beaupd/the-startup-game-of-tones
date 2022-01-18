@@ -3,6 +3,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import DefaultLayout from "../components/content/layouts/DefaultLayout";
 import { useSession, signIn, signOut } from "next-auth/react";
+import signUp from "./api/sanity";
 
 import Les from "../components/layouts/Les";
 
@@ -21,7 +22,7 @@ const Page = ({ props }) => {
                 <button
                     className="p-20"
                     onClick={() => {
-                        return;
+                        signUp();
                     }}
                 >
                     Sign Up
