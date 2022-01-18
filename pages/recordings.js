@@ -1,8 +1,8 @@
 import Head from "next/head"
-import styles from "../styles/ChapterCompletionPage.module.css";
+import styles from "../styles/RecordingsPage.module.css";
 
 
-const ChapterCompletionPage = () => {
+const recordingsPage = () => {
     
     return (
         <>
@@ -64,4 +64,4 @@ const ChapterCompletionPage = () => {
     )
 }
 
-export default ChapterCompletionPage
+export default recordingsPage
