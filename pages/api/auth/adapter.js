@@ -5,8 +5,8 @@ import {
     getUserByEmailQuery,
     getVerificationRequestQuery,
 } from "./queries";
-import { SanityClient } from "../../../studio/node_modules/@sanity/client";
-import { uuid } from "../../../studio/node_modules/@sanity/uuid";
+import { SanityClient } from "@sanity/client";
+import { uuid } from "@sanity/uuid";
 import argon2 from "argon2";
 
 /** @return { import("next-auth/adapters").Adapter } */
