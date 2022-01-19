@@ -15,7 +15,7 @@ const LoginPage = () => {
     const passRef = useRef(null);
 
     const signIn = async (data) => {
-        const res = await axios.post("/api/signIn", {
+        const res = await axios.post("/api/auth/signin/email", {
             ...data,
         });
 
