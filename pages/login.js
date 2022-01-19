@@ -2,6 +2,21 @@ import Head from "next/head";
 import styles from "../styles/LoginPage.module.css";
 import { useState, useRef } from "react";
 
+{
+    /* <section className="p-20">
+                <h1>Not signed in</h1>
+                <button onClick={() => signIn()}>Sign in</button>
+                <button
+                    className="p-20"
+                    onClick={() => {
+                        signUp();
+                    }}
+                >
+                    Sign Up
+                </button>
+            </section> */
+}
+
 const LoginPage = () => {
     const [isSuccessUser, setSuccessUser] = useState(false);
     const [isSuccessPass, setSuccessPass] = useState(false);
