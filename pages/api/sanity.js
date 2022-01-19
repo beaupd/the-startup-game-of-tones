@@ -3,6 +3,7 @@ import { getUserByEmailQuery } from "./auth/queries";
 import argon2 from "argon2";
 import { v4 as uuid } from "uuid";
 import createClient from "@sanity/client";
+import { encode } from "next-auth/jwt";
 
 export const client = createClient({
     projectId: process.env.SANITY_PROJECT_ID,
@@ -56,6 +57,28 @@ export const signUpHandler = (client) => async (req, res) => {
         name: newUser.name,
         image: newUser.image,
     });
+};
+
+export const signInHandler = (client) => async (req, res) => {
+    const { email, password } = req.body;
+    console.log(req.body);
+
+    const user = await client.fetch(getUserByEmailQuery, {
+        email: email,
+    });
+
+    if (!user) throw new Error("Email does not exist");
+
+    if (await argon2.verify(user.password, password)) {
+        return {
+            email: user.email,
+            name: user.name,
+            image: user.image,
+            id: user.id,
+        };
+    }
+
+    throw new Error("Password Invalid");
 };
 
 export const SanityCredentials = (client) =>
