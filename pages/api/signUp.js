@@ -1,2 +1,2 @@
-import { signUpHandler } from "./sanity";
+import { signUpHandler, client } from "./sanity";
 export default signUpHandler(client);

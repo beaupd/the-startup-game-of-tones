@@ -1,35 +1,31 @@
 import Head from "next/head";
 import styles from "../styles/LoginPage.module.css";
 import { useState, useRef } from "react";
-
-{
-    /* <section className="p-20">
-                <h1>Not signed in</h1>
-                <button onClick={() => signIn()}>Sign in</button>
-                <button
-                    className="p-20"
-                    onClick={() => {
-                        signUp();
-                    }}
-                >
-                    Sign Up
-                </button>
-            </section> */
-}
+import axios from "axios";
 
 const LoginPage = () => {
     const [isSuccessUser, setSuccessUser] = useState(false);
     const [isSuccessPass, setSuccessPass] = useState(false);
     const [hasFocussedUser, setHasFocussedUser] = useState(false);
     const [hasFocussedPass, setHasFocussedPass] = useState(false);
+    const [emailValue, setEmail] = useState("");
+    const [passwordValue, setPassword] = useState("");
 
     const userRef = useRef(null);
     const passRef = useRef(null);
 
-    const validateUser = (e) => {
-        const usernameValue = userRef.current.value;
+    const signIn = async (data) => {
+        const res = await axios.post("/api/signIn", {
+            ...data,
+        });
 
-        if (usernameValue === "") {
+        return res.data;
+    };
+
+    const validateUser = (e) => {
+        setEmail(userRef.current.value);
+
+        if (emailValue === "") {
             setSuccessUser(false);
         } else {
             setSuccessUser(true);
@@ -38,14 +34,31 @@ const LoginPage = () => {
     };
 
     const validatePass = (e) => {
-        const passwordValue = passRef.current.value;
+        setPassword(passRef.current.value);
 
         if (passwordValue === "") {
             setSuccessPass(false);
-        } else if (passwordValue.length < 8) {
+        } else if (passwordValue.length < 7) {
             setSuccessPass(false);
         } else {
             setSuccessPass(true);
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log("submitted");
+
+        if (isSuccessUser && isSuccessPass) {
+            console.log(emailValue, passwordValue);
+            let email = emailValue;
+            let password = passwordValue;
+            const user = await signIn({
+                email,
+                password,
+            });
+
+            console.log(user);
         }
     };
 
@@ -89,8 +102,8 @@ const LoginPage = () => {
                 <form
                     className={styles.formContainer}
                     id="form"
-                    method="post"
                     name="myForm"
+                    onSubmit={handleSubmit}
                 >
                     <div className={styles.inputControl}>
                         <div
@@ -105,14 +118,15 @@ const LoginPage = () => {
                         >
                             <label
                                 className={styles.labelStyle}
-                                htmlFor="username"
+                                htmlFor="email"
                             >
-                                Username:
+                                Email:
                             </label>
                             <input
                                 className={styles.inputStyle}
-                                type="text"
-                                id="username"
+                                type="email"
+                                id="email"
+                                name="email"
                                 onKeyUp={(e) => {
                                     validateUser(e);
                                     setHasFocussedUser(true);
