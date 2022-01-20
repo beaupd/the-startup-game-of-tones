@@ -42,10 +42,8 @@ const profilePage = () => {
   <section className={styles.generalInfo} >
         <h2 className={styles.generalInfoHeader}>General Info</h2>
         <div className={styles.dataContainer}>
-        <p className={styles.userData}>First name:</p>
-        <p className={styles.userData}>Last name:</p>
+        <p className={styles.userData}>Name:</p>
         <p className={styles.userData}>Email:</p>
-        <p className={styles.userData}>Username:</p>
         <p className={styles.userData}>Password:</p>
         </div>
 

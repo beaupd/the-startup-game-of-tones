@@ -4,206 +4,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.musicNote {
-    margin-left: 20px;
-    margin-bottom: 30px;
-    animation: bounce 3s infinite linear;
-}
-
-@keyframes bounce {
-
-    0% {
-        transform: translateY(15px);
-
-    }
-
-    20% {
-        transform: translateY(10px);
-    }
-
-    40% {
-        transform: translateY(0px);
-    }
-
-    60% {
-        transform: translateY(0px);
-
-    }
-
-    80% {
-        transform: translateY(10px);
-    }
-
-    100% {
-        transform: translateY(15px);
-
-
-    }
-
-}
-
-.background-image {
-    background: url("/background.png"), linear-gradient(#3F51B5, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 50%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
-}
-
-.background-image1 {
-    background: url("/background.png"), linear-gradient(#54BA54, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 50%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
-}
-
-.background-image2 {
-    background: url("/background.png"), linear-gradient(#FF9400, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 50%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
-}
-
-.background-imageHome {
-    background: url("/background.png"), linear-gradient(#000000, #000000);
-    background-repeat: no-repeat;
-    opacity: 70%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-}
-
-
-.para {
-    font-size: 21px;
-    color: #555555;
-    margin-bottom: 80px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
-.radioButtons {
-    display: flex;
-    padding: 100px;
-    align-items: space-between;
-}
-
-.radioButtons input {
-    border: none;
-    margin: 1em;
-    border-radius: 1em;
-    height: 15px;
-    width: 15px;
-    transition: 0.5s;
-}
-
-#uspText {
-
-    height: 100px;
-    color: #555555;
-
-}
-
-#button {
-    border: none;
-    font-family: 'poppins';
-    padding: 0.5em 2em;
-    border-radius: 1.5em;
-    color: white;
-    font-size: 16px;
-    background-color: #8D74B1;
-    cursor: pointer;
-    transition: 0.5s;
-    text-decoration: none;
-
-}
-
-#button:visited {
-    text-decoration: none;
-}
-
-#button:hover {
-    transform: scale(1.1);
-}
-
-/* ---------------- Home Scherm ---------------------- */
-
-.circle {
-    fill: linear-gradient(#3F51B5, #CDD5E9);
-    animation: bounce 3s infinite linear;
-
-}
-
-.chapterCircle {
-    fill: #e2e2e2;
-    transition: 0.8s;
-
-}
-
-.chapterCircle:hover {
-    fill: #8D74B1;
-}
-
-.chapterCircleText:hover {
-    fill: #8D74B1;
-
-}
-
-.chapterCircleInactive {
-    fill: #bbbbbb;
-    cursor: auto;
-}
-
-
-/* --------------- intro scherm -------------------- */
-
-.background-imageIntro {
-    background: url("/background.png"), linear-gradient(#FFFFFF, #FFFFFF);
-    background-repeat: no-repeat;
-    opacity: 60%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-}
-
-
 .sideBar {
     min-width: 3em;
     width: 4em;
@@ -221,8 +21,6 @@
     position: relative;
     top: -20px;
     color: #FFFFFF;
-
-
 }
 
 .sideBarItem {
@@ -250,7 +48,6 @@
 }
 
 
-
 .topBar {
 
     min-height: 3em;
@@ -274,18 +71,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .circleIcon img {
     width: 50%;
     height: 50%;
-
-
 }
-
-
 
 .chapterHeader {
 
@@ -293,9 +84,29 @@
     font-weight: 100;
     color: #3F51B5;
     line-height: 40px;
-    margin-left: 3em;
-    /* background-color: #bbbbbb; */
+    margin-left: 3em;  
 }
+
+.backContainer{
+    display: inline-flex;
+    transition: 0.5s;
+    font-size: 1em;
+    color: #8D74B1;
+    font-weight: bold;
+}
+
+.backContainer:hover {
+    transform: scale(1.1);
+}
+
+.main {
+    padding-top: 5em;
+    padding-left: 7em;
+}
+
+
+/* ----------------- Recording page -------------- */
+
 
 .recording{
     margin-left: 9em;
@@ -304,13 +115,9 @@
     border-radius: 2em;
     min-height: 40vh;
     max-width: 70vw;
-
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: 1fr 1fr;
-   /* align-items: center; */
-   /* justify-content: center; */
-   
+   grid-template-rows: 1fr 1fr;  
 }
 
 
@@ -329,7 +136,6 @@
 }
 
 .recordingGridItem1{
-    /* background-color: blue; */
     justify-self: left;
     margin-left: 2em;
     font-family: 'poppins', helvetica;
@@ -340,7 +146,6 @@
 .recordingGridItem2{
    
          grid-column-start: 2;
-        /* grid-column-end: five; */
         grid-row-start: 1;
         grid-row-end: 4; 
         background-color: rgb(255, 255, 255);
@@ -349,14 +154,13 @@
         align-self: center;
         width: 500px;
         height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       
 }
 
 .recordingGridItem3{
-    /* background-color: blue; */
     justify-self: right;
     padding: 2em;
     font-size: 1em;
@@ -370,7 +174,6 @@
     margin: 2em;
     padding: 0.5em 1em;
     border-radius: 1em;
-    /* display: inline-block; */
     font-family: 'poppins', helvetica;
     font-size: 1em;
     color: #555555;
@@ -379,358 +182,4 @@
 .recordingSVG{
  width: 2em;
  height: 2em;
-
- 
-}
-.continueContainer {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 3em;
-    font-size: 1em;
-    text-decoration: none;
-    transition: 0.5s;
-}
-
-.continueContainer:hover {
-
-    transform: scale(1.1);
-}
-
-.backContainer{
-    display: inline-flex;
-    transition: 0.5s;
-    /* background-color: #000000; */
-    font-size: 1em;
-    color: #8D74B1;
-    font-weight: bold;
-}
-
-.backContainer:hover {
-
-    transform: scale(1.1);
-}
-
-.main {
-
-    padding-top: 5em;
-    padding-left: 7em;
-  
-  
- 
-}
-
-
-/*------------------- Chapter 1 scherm -------------------- */
-
-.subchapterCircle {
-    width: 50px;
-    height: 100%;
-    /* display: none; */
-}
-
-.subsubchapterCircle {
-    width: 100px;
-    height: 100%;
-    display: none;
-}
-
-.chapterCircleText {
-    fill: #355275;
-}
-
-.subsubchapterCircle1_2 {
-    width: 100px;
-    height: 100%;
-    display: none;
-}
-
-.subsubchapterCircle1_3 {
-    width: 100px;
-    height: 100%;
-    display: none;
-}
-
-#lampje,
-#lampje2,
-#lampje3 {
-    transition: 0.5s;
-
-}
-
-#lampje:hover {
-    cursor: pointer;
-    transform: translateY(-17px) translateX(-10px) scale(1.1);
-}
-
-#lampje2:hover {
-    cursor: pointer;
-    transform: translateY(-30px) translateX(-10px) scale(1.1);
-}
-
-#lampje3:hover {
-    cursor: pointer;
-    transform: translateY(-40px) translateX(-10px) scale(1.1);
-}
-
-#tandwielen,
-#tandwielen2,
-#tandwielen3 {
-    transition: 0.5s;
-
-}
-
-#tandwielen:hover {
-    cursor: pointer;
-    transform: translateY(-20px) translateX(-5px) scale(1.1);
-}
-
-#tandwielen2:hover {
-    cursor: pointer;
-    transform: translateY(-32px) translateX(-5px) scale(1.1);
-}
-
-#tandwielen3:hover {
-    cursor: pointer;
-    transform: translateY(-44px) translateX(-5px) scale(1.1);
-}
-
-
-#mindset,
-#mindset2,
-#mindset3 {
-    transition: 0.5s;
-
-}
-
-#mindset:hover {
-    cursor: pointer;
-    transform: translateY(-30px) translateX(-5px) scale(1.1);
-}
-
-#mindset2:hover {
-    cursor: pointer;
-    transform: translateY(-42px) translateX(-5px) scale(1.1);
-}
-
-#mindset3:hover {
-    cursor: pointer;
-    transform: translateY(-52px) translateX(-5px) scale(1.1);
-}
-
-
-#potlood_icoon,
-#potlood_icoon2,
-#potlood_icoon3 {
-    transition: 0.5s;
-
-}
-
-#potlood_icoon:hover {
-    cursor: pointer;
-    transform: translateY(-30px) translateX(-10px) scale(1.1);
-}
-
-#potlood_icoon2:hover {
-    cursor: pointer;
-    transform: translateY(-42px) translateX(-10px) scale(1.1);
-}
-
-#potlood_icoon3:hover {
-    cursor: pointer;
-    transform: translateY(-55px) translateX(-10px) scale(1.1);
-}
-
-
-#groene_outline {
-    display: none;
-}
-
-#oranje_outline {
-    display: none;
-}
-
-#blauwe_outline {
-    display: none;
-}
-
-#gele_outline {
-    display: none;
-}
-
-
-
-#cirkel_1,
-#cirkel_2,
-#cirkel_3,
-#cirkel_4 {
-    cursor: pointer;
-}
-
-
-
-#circle1,
-#circle2,
-#circle3 {
-    cursor: pointer;
-}
-
-#circle3_1,
-#circle3_2,
-#circle3_3,
-#circle3_4,
-#circle3_5 {
-    cursor: pointer;
-}
-
-
-
-
-
-/*------------------- Main Menu scherm-------------------- */
-
-.gradientBG {
-    position: absolute;
-    z-index: -1;
-    height: 345px;
-    width: 345px;
-
-    opacity: 75%;
-
-}
-
-.gradientBGChapter {
-    position: absolute;
-    z-index: -1;
-    height: 60px;
-    width: 60px;
-    top: 450px;
-    margin-right: 97px;
-    opacity: 75%;
-
-}
-
-.chapterCircleTextInactive {
-    fill: #355275;
-    cursor: auto;
-
-}
-
-.chapterCircleLocked {
-    fill: #e2e2e2;
-    transition: 0.8s;
-}
-
-.chapter2Text {
-    fill: #355275;
-}
-
-.chapter2Circle {
-    fill: #8D74B1;
-}
-
-.chapter2CircleText {
-    fill: #FFFFFF;
-}
-
-
-
-
-
-/* inlog scherm */
-
-.inputStyle {
-    border-style: none;
-    background: none;
-    padding: 0em 0em 0.5em 0.5em;
-    font-size: 1em;
-    color: #8D74B1;
-}
-
-.inputStyle:focus {
-    outline: none;
-    font-size: 1em;
-
-
-}
-
-.formContainer {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-
-}
-
-.labelStyle {
-    border-bottom: 1px solid #555555;
-    margin: 2em 0em;
-    color: #555555;
-    font-size: 1.2em;
-
-}
-
-
-.labelStyleSignup {
-    border-bottom: 1px solid #555555;
-    margin-top: 2em;
-    color: #555555;
-    font-size: 1.2em;
-}
-
-#ForgotInfo {
-
-    font-size: 0.8em;
-    color: #555555;
-    text-decoration: none;
-    margin-bottom: 3em;
-}
-
-#accountCreation {
-    font-size: 0.8em;
-    color: #555555;
-    text-decoration: none;
-    margin-bottom: 0.5em;
-}
-
-#ForgotInfo:hover,
-#accountCreation:hover {
-    color: #8D74B1;
-}
-
-.background-imageLogin {
-    background: url("/background.png"), linear-gradient(#3F51B5, #ffffff);
-    background-repeat: no-repeat;
-    opacity: 30%;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-
-}
-
-#inlogButton {
-    border: none;
-    font-family: 'poppins';
-    padding: 0.5em 2em;
-    border-radius: 1.5em;
-    color: white;
-    font-size: 16px;
-    background-color: #8D74B1;
-    cursor: pointer;
-    transition: 0.5s;
-    text-decoration: none;
-    width: 120px;
-    align-self: center;
-    margin-top: 2.5em;
-
-}
-
-#inlogButton:hover {
-    transform: scale(1.1);
-}
-
-#signUpTitle {
-    margin-bottom: 1em;
 }
