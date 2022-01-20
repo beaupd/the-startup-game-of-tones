@@ -14,9 +14,10 @@ export default {
             type: "string",
         },
         {
-            name: "image",
-            title: "Image",
-            type: "url",
+            name: "recordings",
+            title: "Recordings",
+            type: "array",
+            of: [{ type: "file" }],
         },
         {
             name: "password",

@@ -33,6 +33,7 @@ export async function getSanityContent({ query, variables = {} }) {
 
 export const signUpHandler = (client) => async (req, res) => {
     const { email, password, name, image } = req.body;
+    // console.log(req.body);
 
     const user = await client.fetch(getUserByEmailQuery, {
         email,
@@ -61,21 +62,23 @@ export const signUpHandler = (client) => async (req, res) => {
 
 export const signInHandler = (client) => async (req, res) => {
     const { email, password } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
+    // console.log("HeeHEe", email, password);
 
     const user = await client.fetch(getUserByEmailQuery, {
         email: email,
     });
 
-    if (!user) throw new Error("Email does not exist");
+    if (!user) res.json({ error: "Email does not exist" });
 
     if (await argon2.verify(user.password, password)) {
-        return {
+        res.json({
             email: user.email,
             name: user.name,
             image: user.image,
             id: user.id,
-        };
+        });
+        return;
     }
 
     throw new Error("Password Invalid");
@@ -99,16 +102,17 @@ export const SanityCredentials = (client) =>
             const user = await client.fetch(getUserByEmailQuery, {
                 email: credentials.email,
             });
+            console.log("yeyee", user);
 
             if (!user) throw new Error("Email does not exist");
 
             if (await argon2.verify(user.password, credentials.password)) {
-                return {
+                res.json({
                     email: user.email,
                     name: user.name,
                     image: user.image,
                     id: user.id,
-                };
+                });
             }
 
             throw new Error("Password Invalid");

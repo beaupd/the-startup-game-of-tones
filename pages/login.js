@@ -2,8 +2,9 @@ import Head from "next/head";
 import styles from "../styles/LoginPage.module.css";
 import { useState, useRef } from "react";
 import axios from "axios";
+import { getSession, getCsrfToken } from "next-auth/react";
 
-const LoginPage = () => {
+const LoginPage = ({ csrfToken }) => {
     const [isSuccessUser, setSuccessUser] = useState(false);
     const [isSuccessPass, setSuccessPass] = useState(false);
     const [hasFocussedUser, setHasFocussedUser] = useState(false);
@@ -15,10 +16,10 @@ const LoginPage = () => {
     const passRef = useRef(null);
 
     const signIn = async (data) => {
-        const res = await axios.post("/api/auth/signin/email", {
+        const res = await axios.post("/api/signIn", {
             ...data,
         });
-
+        // console.log(res.data);
         return res.data;
     };
 
@@ -47,10 +48,10 @@ const LoginPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("submitted");
+        // console.log("submitted");
 
         if (isSuccessUser && isSuccessPass) {
-            console.log(emailValue, passwordValue);
+            // console.log(emailValue, passwordValue);
             let email = emailValue;
             let password = passwordValue;
             const user = await signIn({
@@ -116,6 +117,11 @@ const LoginPage = () => {
                                     : "1px solid #555555",
                             }}
                         >
+                            <input
+                                name="csrfToken"
+                                type="hidden"
+                                defaultValue={csrfToken}
+                            />
                             <label
                                 className={styles.labelStyle}
                                 htmlFor="email"
@@ -127,7 +133,7 @@ const LoginPage = () => {
                                 type="email"
                                 id="email"
                                 name="email"
-                                onKeyUp={(e) => {
+                                onChange={(e) => {
                                     validateUser(e);
                                     setHasFocussedUser(true);
                                 }}
@@ -158,7 +164,7 @@ const LoginPage = () => {
                                 type="password"
                                 name="password"
                                 id="password"
-                                onKeyUp={(e) => {
+                                onChange={(e) => {
                                     validatePass(e);
                                     setHasFocussedPass(true);
                                 }}
@@ -186,6 +192,25 @@ const LoginPage = () => {
             </main>
         </>
     );
+};
+
+LoginPage.getInitialProps = async (context) => {
+    // console.log(context);
+    const { req, res } = context;
+    const session = await getSession(req);
+
+    if (session && res && session.accessToken) {
+        res.writeHead(302, {
+            Location: "/",
+        });
+        res.end();
+        return;
+    }
+
+    return {
+        session: undefined,
+        csrfToken: await getCsrfToken(req),
+    };
 };
 
 export default LoginPage;

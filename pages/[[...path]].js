@@ -5,15 +5,6 @@ import DefaultLayout from "../components/content/layouts/DefaultLayout";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
 import Link from "next/link";
-
-const signUp = async (data) => {
-    const res = await axios.post("/api/sanity", {
-        ...data,
-    });
-
-    return res.data;
-};
-
 import Les from "../components/layouts/Les";
 
 const components = { DefaultLayout };

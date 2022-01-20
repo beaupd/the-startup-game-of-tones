@@ -13,10 +13,10 @@ const RegisterPage = () => {
     const [disabled, setDisabled] = useState(true);
 
     const signUp = async (data) => {
-        const res = await axios.post("/api/signUp", {
+        const res = await axios.post("/api/auth/signin/credentials", {
             ...data,
         });
-
+        // console.log(res.data);
         return res.data;
     };
 
@@ -36,7 +36,7 @@ const RegisterPage = () => {
                 name,
             });
 
-            console.log(user);
+            // console.log(user);
         }
     };
 

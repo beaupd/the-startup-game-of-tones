@@ -13,6 +13,7 @@ module.exports = {
     pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
     // Support loading `.md`, `.mdx`:
     webpack(config, options) {
+        // MDX
         config.module.rules.push({
             test: /\.mdx?$/,
             use: [
