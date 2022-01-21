@@ -20,6 +20,7 @@ export async function getSanityContent({ query, variables = {} }) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                Authorization: "Bearer " + process.env.SANITY_API_TOKEN,
             },
             body: JSON.stringify({
                 query,
