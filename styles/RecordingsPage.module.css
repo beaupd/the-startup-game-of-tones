@@ -338,12 +338,13 @@
     align-self: center;
 }
 .recordingGridItem2{
-   
+        cursor: pointer;
          grid-column-start: 2;
         /* grid-column-end: five; */
         grid-row-start: 1;
         grid-row-end: 4; 
         background-color: rgb(255, 255, 255);
+        transition: .3s;
         border: 1px solid #FF9400;
         border-radius: 1em;
         align-self: center;
@@ -353,6 +354,10 @@
       align-items: center;
       justify-content: center;
       
+}
+
+.recordingGridItem2:hover{
+    background: rgba(155,155,155,0.3)
 }
 
 .recordingGridItem3{
@@ -416,7 +421,6 @@
 
     padding-top: 5em;
     padding-left: 7em;
-  
   
  
 }

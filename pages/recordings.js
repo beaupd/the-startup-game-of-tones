@@ -3,6 +3,10 @@ import styles from "../styles/RecordingsPage.module.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { getSanityContent } from "./api/sanity";
+import { getSession, getCsrfToken } from "next-auth/react";
+import { getToken } from "next-auth/jwt";
+import { client } from "./api/sanity";
+import { getUserByEmailQuery } from "./api/auth/queries";
 
 const recordingsPage = (props) => {
     const { data: session, status } = useSession();
@@ -21,10 +25,15 @@ const recordingsPage = (props) => {
         );
     }
 
-    console.log(recordings);
+    // console.log(recordings);
+
+    const togglePlay = (e) =>
+        e.currentTarget.querySelector("audio").paused
+            ? e.currentTarget.querySelector("audio").play()
+            : e.currentTarget.querySelector("audio").pause();
     return (
         <>
-            <div className="background-imageIntro" id="bgImage"></div>
+            {/* <div className="background-imageIntro" id="bgImage"></div> */}
 
             <nav className={styles.topBar}>
                 <div className={styles.circleIcon}>
@@ -60,58 +69,83 @@ const recordingsPage = (props) => {
                     <h1 className={styles.chapterHeader}>My Recordings</h1>
                 </header>
 
-                <section className={styles.recording}>
-                    <div className={styles.recordingGridItem1}>
-                        Chapter 1.1 <br />{" "}
-                        <span className={styles.spanItem}>Exercise 1</span>
-                    </div>
-                    <div className={styles.recordingGridItem2}>
-                        <img
-                            className={styles.recordingSVG}
-                            src={"/play-button.svg"}
-                            alt="play button"
-                        ></img>
-                    </div>
+                <ul className={styles.recordings}>
+                    {recordings ? (
+                        recordings.map((record, i) => {
+                            let url = record.asset.url;
+                            // console.log(url);
 
-                    <div className={styles.recordingGridItem3}>
-                        <img
-                            className={styles.recordingSVG}
-                            src={"/trash-can.svg"}
-                            alt="trashcan"
-                        ></img>
-                    </div>
-                    <div className={styles.recordingGridItem}></div>
-                    <div className={styles.recordingGridItem4}>
-                        Go to exercise
-                    </div>
-                </section>
+                            return (
+                                <li className={styles.recording} key={i}>
+                                    <div className={styles.recordingGridItem1}>
+                                        Chapter 1.1 <br />{" "}
+                                        <span className={styles.spanItem}>
+                                            Exercise 1
+                                        </span>
+                                    </div>
+                                    <div
+                                        className={styles.recordingGridItem2}
+                                        onClick={(e) => togglePlay(e)}
+                                    >
+                                        <audio>
+                                            <source src={url}></source>
+                                        </audio>
+                                        <img
+                                            className={styles.recordingSVG}
+                                            src={"/play-button.svg"}
+                                            alt="play button"
+                                        ></img>
+                                    </div>
+
+                                    <div className={styles.recordingGridItem3}>
+                                        <img
+                                            className={styles.recordingSVG}
+                                            src={"/trash-can.svg"}
+                                            alt="trashcan"
+                                        ></img>
+                                    </div>
+                                    <div
+                                        className={styles.recordingGridItem}
+                                    ></div>
+                                    <div className={styles.recordingGridItem4}>
+                                        Go to exercise
+                                    </div>
+                                </li>
+                            );
+                        })
+                    ) : (
+                        <li>You have no recordings</li>
+                    )}
+                </ul>
             </main>
         </>
     );
 };
 
-export async function getStaticProps(context) {
-    // const recordings = await getSanityContent({
-    //     query: `
-    //     query {
-    //         allUser{
-    //             _id
-    //           }
-    //       }`,
-    // });
+export async function getServerSideProps(ctx) {
+    const { req, res } = ctx;
+    // const session = await getSession(req);
+    const secret = process.env.SECRET;
+    const token = await getToken({ req, secret });
 
-    const recordings = await getSanityContent({
-        query: `query {
-                    User(id: "user.5da6782b-24d6-45a4-92d9-91ab6f92d308") {
-                        recordings{asset{url}}
-                    }
-                }`,
+    const email = token.email;
+
+    const user = await client.fetch(getUserByEmailQuery, {
+        email,
     });
 
-    console.log(recordings);
+    const data = await getSanityContent({
+        query: `query {
+            User(id: "${user._id}") {
+              recordings{asset{url}}
+            }
+          }`,
+    });
+
+    // console.log(email, "\n", user._id);
 
     return {
-        props: { recordings: recordings }, // will be passed to the page component as props
+        props: { recordings: data.User.recordings }, // will be passed to the page component as props
     };
 }
 

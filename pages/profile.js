@@ -1,72 +1,129 @@
-import Head from "next/head"
+import Head from "next/head";
 import styles from "../styles/ProfilePage.module.css";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { getToken } from "next-auth/jwt";
+import { client } from "./api/sanity";
+import { getUserByEmailQuery } from "./api/auth/queries";
+import { getSanityContent } from "./api/sanity";
+import Link from "next/link";
 
+const profilePage = (props) => {
+    const { data: session, status } = useSession();
+    const { name, email, password, recordings } = props.user;
+    if (!session) {
+        return (
+            <section className="flex items-center justify-center w-full h-full absolute left-0 top-0 flex-col">
+                <h1 className="p-10">Unauthorized</h1>
+                <Link href="/login">
+                    <a className="px-5 py-2 bg-black text-white rounded uppercase">
+                        login
+                    </a>
+                </Link>
+            </section>
+        );
+    }
+    console.log(session.user);
 
-const profilePage = () => {
-    
     return (
         <>
-        
-            <div className="background-imageIntro" id="bgImage"></div>      
+            <div className="background-imageIntro" id="bgImage"></div>
 
-<nav className={styles.topBar}>
+            <nav className={styles.topBar}>
+                <div className={styles.circleIcon}>
+                    <img src={"./music-note2.svg"} alt="music-note"></img>
+                </div>
 
-    <div className={styles.circleIcon}><img src={"./music-note2.svg"} alt="music-note"></img></div>
- 
-    <div className={styles.circleIcon}> <img src={"./profile.svg"} alt="profile"></img></div>
+                <div className={styles.circleIcon}>
+                    {" "}
+                    <img src={"./profile.svg"} alt="profile"></img>
+                </div>
+            </nav>
 
-</nav>
+            <aside className={styles.sideBar}>
+                <a href="/#">
+                    <img
+                        className={styles.sideBarItem}
+                        src={"./menu-button.svg"}
+                        alt="menu-button"
+                    ></img>
+                </a>
+                <p>Menu</p>
 
+                <h2 className={styles.sideBarItem1}>My Profile</h2>
+            </aside>
 
-<aside className={styles.sideBar}>
-    <a href="/#">
-        <img className={styles.sideBarItem} src={"./menu-button.svg"} alt="menu-button"></img></a>
-    <p>Menu</p>
+            <main className={styles.main}>
+                <a href="#" className={styles.backContainer}>
+                    <img src={"/arrow-left.svg"} alt="arrow left"></img>
+                    <p>Back</p>
+                </a>
 
-    <h2 className={styles.sideBarItem1}>My Profile</h2>
+                <header>
+                    <h1 className={styles.chapterHeader}>My Profile</h1>
+                </header>
 
-</aside>
+                <div className={styles.profileContainer}>
+                    <section className={styles.generalInfo}>
+                        <h2 className={styles.generalInfoHeader}>
+                            General Info
+                        </h2>
+                        <div className={styles.dataContainer}>
+                            <p className={styles.userData}>Name: {name}</p>
+                            <p className={styles.userData}>Email: {email}</p>
+                            <p className={styles.userData}>
+                                Password: {password}
+                            </p>
+                            <p className={styles.userData}>
+                                Total Recordings: {recordings.length}
+                            </p>
+                        </div>
+                    </section>
 
-<main className={styles.main}>
-
-<a  href="#" className={styles.backContainer}>
-<img src={"/arrow-left.svg"} alt="arrow left"></img>
-        <p>Back</p>      
-    </a>
-
-    <header>
-        <h1 className={styles.chapterHeader}>My Profile</h1>
-    </header>
-
-<div className={styles.profileContainer} >
-  <section className={styles.generalInfo} >
-        <h2 className={styles.generalInfoHeader}>General Info</h2>
-        <div className={styles.dataContainer}>
-        <p className={styles.userData}>First name:</p>
-        <p className={styles.userData}>Last name:</p>
-        <p className={styles.userData}>Email:</p>
-        <p className={styles.userData}>Username:</p>
-        <p className={styles.userData}>Password:</p>
-        </div>
-
-  </section>
-
-  <section className={styles.chapters} >
-        <h2 className={styles.generalInfoHeader}>Chapters</h2>
-        <div className={styles.dataContainer}>
-        <p className={styles.chapterData}>Current chapter:</p>
-        <p className={styles.chapterData}>Chapter progression:</p>
-
-        </div>
-
-  </section>
-  </div>
-
-  
-</main>
-
+                    <section className={styles.chapters}>
+                        <h2 className={styles.generalInfoHeader}>Chapters</h2>
+                        <div className={styles.dataContainer}>
+                            <p className={styles.chapterData}>
+                                Current chapter:
+                            </p>
+                            <p className={styles.chapterData}>
+                                Chapter progression:
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </main>
         </>
-    )
+    );
+};
+
+export async function getServerSideProps(ctx) {
+    const { req, res } = ctx;
+    // const session = await getSession(req);
+    const secret = process.env.SECRET;
+    const token = await getToken({ req, secret });
+
+    const email = token.email;
+
+    const user = await client.fetch(getUserByEmailQuery, {
+        email,
+    });
+
+    const data = await getSanityContent({
+        query: `query {
+            User(id: "${user._id}") {
+                name
+                email
+                password
+                recordings{asset{url}}
+            }
+          }`,
+    });
+
+    // console.log(email, "\n", user._id);
+
+    return {
+        props: { user: data.User }, // will be passed to the page component as props
+    };
 }
 
-export default profilePage
+export default profilePage;
