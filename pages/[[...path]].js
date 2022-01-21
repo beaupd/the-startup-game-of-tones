@@ -6,8 +6,9 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
 import Link from "next/link";
 import Les from "../components/layouts/Les";
+import ColoredText from "../components/content/ColoredText";
 
-const components = { DefaultLayout };
+const components = { DefaultLayout, ColoredText };
 
 const Page = ({ props }) => {
     const { data: session, status } = useSession();
