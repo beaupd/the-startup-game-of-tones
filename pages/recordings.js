@@ -2,9 +2,11 @@ import Head from "next/head";
 import styles from "../styles/RecordingsPage.module.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import { getSanityContent } from "./api/sanity";
 
-const recordingsPage = () => {
+const recordingsPage = (props) => {
     const { data: session, status } = useSession();
+    const { recordings } = props;
 
     if (!session) {
         return (
@@ -19,7 +21,7 @@ const recordingsPage = () => {
         );
     }
 
-    console.log("front", session);
+    console.log(recordings);
     return (
         <>
             <div className="background-imageIntro" id="bgImage"></div>
@@ -87,5 +89,30 @@ const recordingsPage = () => {
         </>
     );
 };
+
+export async function getStaticProps(context) {
+    // const recordings = await getSanityContent({
+    //     query: `
+    //     query {
+    //         allUser{
+    //             _id
+    //           }
+    //       }`,
+    // });
+
+    const recordings = await getSanityContent({
+        query: `query {
+                    User(id: "user.5da6782b-24d6-45a4-92d9-91ab6f92d308") {
+                        recordings{asset{url}}
+                    }
+                }`,
+    });
+
+    console.log(recordings);
+
+    return {
+        props: { recordings: recordings }, // will be passed to the page component as props
+    };
+}
 
 export default recordingsPage;
