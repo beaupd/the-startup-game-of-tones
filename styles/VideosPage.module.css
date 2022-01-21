@@ -110,53 +110,65 @@
 }
 
 
-/*------------------- My profile-------------------- */
+/* ------------- Video example --------------- */
 
-.generalInfo{
-    background-color: rgba(235, 221, 219, 0.8);
-    border-radius: 2em;
-    color: #555555;
-    margin: 3em 10em 0em 9em;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    
 
-}
-
-.generalInfoHeader{
-    display: inline-flex;
-    margin: 1em;
-    color: #FF9400;
-}
-
-.dataContainer{
-    margin: 0em 2em 2em 2em;
-}
-
-.userData{
+.videoExampleSection{
+    width: 50%;
+    height: 100%;
+    /* background-color: #555555; */
+  position: relative;
   
-    padding: 0.5em 0em;
-    width: 350px;
-    border-bottom: 1px solid #FF9400 ;
 }
 
 
-.profileContainer{   
-    display: inline-flex;
+.videoExample{
+  
+    /* background-color: #8D74B1; */
+    border-radius: 1em;
+    /* overflow: hidden; */
+    border: 2px solid #3F51B5;
+    padding: 4em 1em 2em 1em;
+    background-color: #FFFFFF;
+   
+  
+    
 }
 
+.videoExampleTitle{
+    position: absolute;
+    padding: 1em;
+    color: #3F51B5;
 
-.chapters{
-    background-color: rgba(235, 221, 219, 0.8);
-    border-radius: 2em;
-    color: #555555;
-    margin: 3em 15em 0em 0em;
 }
 
-.chapterData{
-    padding: 0.5em 0em;
-    margin-bottom: 3em;
-    width: 350px;
-    border-bottom: 1px solid #FF9400 ;
+.videoControlContainer{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+  
+}
+.videoControl{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #3F51B5;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease 1s;
+}
+
+.videoControl:hover{
+    transform: scale(1.2);
+    background-color: #7c5395;
+    cursor: pointer;
+}
+
+.videoControlIcon{
+    width: 50%;
+    height: 50%;
+    
 }

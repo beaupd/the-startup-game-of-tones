@@ -29,9 +29,9 @@ const volume1Page = () => {
 
 <main className={styles.main}>
    
-<div>
+{/* <div>
     <SvgComponent />
-</div>
+</div> */}
 
 
 
