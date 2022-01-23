@@ -16,7 +16,7 @@ Dit is de repository voor de Game of Tones Webapp voor sprint 6. Deze sprint ite
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
- [Live Versie](the-startup-game-of-tones.vercel.app)
+ [Live Versie](https://the-startup-game-of-tones.vercel.app/onboarding)
 
 ### Functies van het project
 
