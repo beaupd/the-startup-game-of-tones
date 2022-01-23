@@ -28,6 +28,11 @@ Hieronder staan alle geintegreerde of bedachte functies onder categoriën van pr
 - [x] Home navigatie waarmee je de verschillende subchapters kan zien van de chapters.
 - [x] Styleguide
 - [x] Compleet werkende navigatie flow van de outlines van het project; Chapters, subchapter en de 4 lessen van de subchapters.
+- [x] Een systeem waarbij de opdrachtgever makkelijk content, afbeeldingen en bestanden kan toevoegen en/of verwijderen.
+- [ ] Recurring Chapters (in het hoofdmenu).
+- [x] Video component met de optie meerdere videos, shuffle mode, opneem, afspeel en reset.
+- [ ] Home navigatie links automatisch vanuit het cms aanmaken.
+- [x] 6 verschillende kleur mogelijkheden voor de les content type.
 
 #### Should have
 
@@ -35,6 +40,11 @@ Hieronder staan alle geintegreerde of bedachte functies onder categoriën van pr
 - [x] Pad van subchapter naar subchapter om progress te weergeven binnen home navigatie.
 - [ ] Progress State om de progressie van een gebruiker te weergeven.
 - [x] Achtergrond audio visualisatie op home.
+- [ ] Inloggen met een account en progressie kunnen opslaan.
+- [ ] Spotify API.
+- [ ] Hoofdmenu transities (in en uitzoomen concept): https://www.youtube.com/watch?v=mBdTGeLP77A
+- [ ] Transities binnen een sub-hoofdstuk moeten niet te afleidend zijn (het moet namelijk makkelijk zijn om te wisselen tussen de verschillende ui-lagen).
+- [ ] Bij de onion: maak elk onderdeel als geheel klikbaar (niet alleen het icoontje dat erin staat).
 
 #### Could have
 
