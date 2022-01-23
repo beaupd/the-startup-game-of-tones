@@ -7,23 +7,23 @@ const videosPage = () => {
     return (
         <>
          <Head>
-                <script src="/videoExampleScript.js" defer></script>
+                <script src="/icons/videoExampleScript.js" defer></script>
             </Head>
         
             <div className="background-imageIntro" id="bgImage"></div>      
 
 <nav className={styles.topBar}>
 
-    <div className={styles.circleIcon}><img src={"./music-note2.svg"} alt="music-note"></img></div>
+    <div className={styles.circleIcon}><img src={"./icons/music-note2.svg"} alt="music-note"></img></div>
  
-    <div className={styles.circleIcon}> <img src={"./profile.svg"} alt="profile"></img></div>
+    <div className={styles.circleIcon}> <img src={"./icons/profile.svg"} alt="profile"></img></div>
 
 </nav>
 
 
 <aside className={styles.sideBar}>
     <a href="/#">
-        <img className={styles.sideBarItem} src={"./menu-button.svg"} alt="menu-button"></img></a>
+        <img className={styles.sideBarItem} src={"./icons/menu-button.svg"} alt="menu-button"></img></a>
     <p>Menu</p>
 
     <h2 className={styles.sideBarItem1}>My Profile</h2>
@@ -33,7 +33,7 @@ const videosPage = () => {
 <main className={styles.main}>
 
 <a  href="#" className={styles.backContainer}>
-<img src={"/arrow-left.svg"} alt="arrow left"></img>
+<img src={"/icons/arrow-left.svg"} alt="arrow left"></img>
         <p>Back</p>      
     </a>
 
@@ -43,21 +43,21 @@ const videosPage = () => {
    <div className={styles.videoControl} id="playbtn">
    <img className={styles.videoControlIcon} id="controlIcon"
                            
-    src={"/play-button-icon.svg"}
+    src={"/icons/play-button-icon.svg"}
     alt="play button"
     ></img>
    </div>
    <div className={styles.videoControl} id="replaybtn">
    <img className={styles.videoControlIcon}
                            
-    src={"/reload-icon.svg"}
+    src={"/icons/reload-icon.svg"}
     alt="play button"
     ></img>
    </div>
    <div className={styles.videoControl} id="shufflebtn">
    <img className={styles.videoControlIcon}
                            
-    src={"/shuffle-icon.svg"}
+    src={"/icons/shuffle-icon.svg"}
     alt="play button"
     ></img>
    </div>

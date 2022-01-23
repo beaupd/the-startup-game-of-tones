@@ -25,7 +25,7 @@ const recordingsPage = (props) => {
         );
     }
 
-    // console.log(recordings);
+ 
 
     const togglePlay = (e) =>
         e.currentTarget.querySelector("audio").paused
@@ -33,16 +33,16 @@ const recordingsPage = (props) => {
             : e.currentTarget.querySelector("audio").pause();
     return (
         <>
-            {/* <div className="background-imageIntro" id="bgImage"></div> */}
+
 
             <nav className={styles.topBar}>
                 <div className={styles.circleIcon}>
-                    <img src={"./music-note2.svg"} alt="music-note"></img>
+                    <img src={"./icons/music-note2.svg"} alt="music-note"></img>
                 </div>
 
                 <div className={styles.circleIcon}>
                     {" "}
-                    <img src={"./profile.svg"} alt="profile"></img>
+                    <img src={"./icons/profile.svg"} alt="profile"></img>
                 </div>
             </nav>
 
@@ -50,7 +50,7 @@ const recordingsPage = (props) => {
                 <a href="/#">
                     <img
                         className={styles.sideBarItem}
-                        src={"./menu-button.svg"}
+                        src={"./icons/menu-button.svg"}
                         alt="menu-button"
                     ></img>
                 </a>
@@ -61,7 +61,7 @@ const recordingsPage = (props) => {
 
             <main className={styles.main}>
                 <a href="#" className={styles.backContainer}>
-                    <img src={"/arrow-left.svg"} alt="arrow left"></img>
+                    <img src={"/icons/arrow-left.svg"} alt="arrow left"></img>
                     <p>Back</p>
                 </a>
 
@@ -73,7 +73,7 @@ const recordingsPage = (props) => {
                     {recordings ? (
                         recordings.map((record, i) => {
                             let url = record.asset.url;
-                            // console.log(url);
+   
 
                             return (
                                 <li className={styles.recording} key={i}>
@@ -92,7 +92,7 @@ const recordingsPage = (props) => {
                                         </audio>
                                         <img
                                             className={styles.recordingSVG}
-                                            src={"/play-button.svg"}
+                                            src={"/icons/play-button.svg"}
                                             alt="play button"
                                         ></img>
                                     </div>
@@ -100,7 +100,7 @@ const recordingsPage = (props) => {
                                     <div className={styles.recordingGridItem3}>
                                         <img
                                             className={styles.recordingSVG}
-                                            src={"/trash-can.svg"}
+                                            src={"/icons/trash-can.svg"}
                                             alt="trashcan"
                                         ></img>
                                     </div>
@@ -124,7 +124,7 @@ const recordingsPage = (props) => {
 
 export async function getServerSideProps(ctx) {
     const { req, res } = ctx;
-    // const session = await getSession(req);
+
     const secret = process.env.SECRET;
     const token = await getToken({ req, secret });
 
@@ -142,7 +142,7 @@ export async function getServerSideProps(ctx) {
           }`,
     });
 
-    // console.log(email, "\n", user._id);
+
 
     return {
         props: { recordings: data.User.recordings }, // will be passed to the page component as props

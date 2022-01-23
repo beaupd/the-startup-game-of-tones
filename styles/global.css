@@ -223,7 +223,6 @@ p {
     min-width: 3em;
     width: 4em;
     height: 100vh;
-    background-color: #3f51b5;
     position: absolute;
     display: inline-flex;
     flex-direction: column;
@@ -263,7 +262,6 @@ p {
     min-height: 3em;
     height: 4em;
     width: 100vw;
-    background-color: #cdd5e9;
     position: absolute;
     top: 0;
     display: flex;
@@ -321,7 +319,6 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    /* background-color: cadetblue; */
 }
 
 /*------------------- Chapter 1 scherm -------------------- */
@@ -329,7 +326,6 @@ hr {
 .subchapterCircle {
     width: 50px;
     height: 100%;
-    /* display: none; */
 }
 
 .subsubchapterCircle {
