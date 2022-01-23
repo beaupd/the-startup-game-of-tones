@@ -30,12 +30,12 @@ const profilePage = (props) => {
 
             <nav className={styles.topBar}>
                 <div className={styles.circleIcon}>
-                    <img src={"./music-note2.svg"} alt="music-note"></img>
+                    <img src={"./icons/music-note2.svg"} alt="music-note"></img>
                 </div>
 
                 <div className={styles.circleIcon}>
                     {" "}
-                    <img src={"./profile.svg"} alt="profile"></img>
+                    <img src={"./icons/profile.svg"} alt="profile"></img>
                 </div>
             </nav>
 
@@ -43,7 +43,7 @@ const profilePage = (props) => {
                 <a href="/#">
                     <img
                         className={styles.sideBarItem}
-                        src={"./menu-button.svg"}
+                        src={"./icons/menu-button.svg"}
                         alt="menu-button"
                     ></img>
                 </a>
@@ -54,7 +54,7 @@ const profilePage = (props) => {
 
             <main className={styles.main}>
                 <a href="#" className={styles.backContainer}>
-                    <img src={"/arrow-left.svg"} alt="arrow left"></img>
+                    <img src={"/icons/arrow-left.svg"} alt="arrow left"></img>
                     <p>Back</p>
                 </a>
 
@@ -98,7 +98,7 @@ const profilePage = (props) => {
 
 export async function getServerSideProps(ctx) {
     const { req, res } = ctx;
-    // const session = await getSession(req);
+
     const secret = process.env.SECRET;
     const token = await getToken({ req, secret });
 
@@ -119,7 +119,7 @@ export async function getServerSideProps(ctx) {
           }`,
     });
 
-    // console.log(email, "\n", user._id);
+
 
     return {
         props: { user: data.User }, // will be passed to the page component as props
