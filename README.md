@@ -54,12 +54,16 @@ Hieronder staan alle geintegreerde of bedachte functies onder categoriën van pr
 - [ ] Animaties voor alle unlocks.
 - [ ] Per user stored progress en progressable chapters.
 - [ ] animatie tussen paden van subchapters binnen home navigatie.
+- [ ] Opneemfunctie en bibliotheek 
+- [ ] Recurring chapter navigatie on hover, quick swap naar andere recurring chapters.
+- [ ] Animaties
 
 #### Won't have
 
 - [ ] Volumes navigatie.
 - [ ] Interactive components (jsx?) via cms in de content van een les.
 - [ ] Register and Login systeem met het CMS. Met nextjs \_Middleware is dit best makkelijk te realiseren.
+- [ ] Betaal mogelijkheid(recurring).
 
 ## Kenmerken
 
