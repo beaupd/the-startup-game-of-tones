@@ -10,9 +10,12 @@
 
 ## Beschrijving
 
+Dit is de repository voor de Game of Tones Webapp voor sprint 6. Deze sprint itereren we verder op wat we in sprint 5 hebben gemaakt. Zo zijn er nu meerdere onderdelen aanwezig die ontbraken in de vorige sprint. Omdat er veel pagina's zijn hebben we gebruik gemaakt van een CMS (Content Management System) om de pagina's dynamisch in te laden. Game of Tones is een lesmethode Webapp waarmee je zelfstandig muzieklessen kunt volgen op een computer of tablet.
+
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
+ the-startup-game-of-tones.vercel.app 
 
 ### Functies van het project
 
