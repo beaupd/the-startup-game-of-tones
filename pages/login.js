@@ -19,7 +19,7 @@ const LoginPage = ({ csrfToken }) => {
         const res = await axios.post("/api/auth/Credentials", {
             ...data,
         });
-        // console.log(res.data);
+
         return res.data;
     };
 
@@ -48,10 +48,10 @@ const LoginPage = ({ csrfToken }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // console.log("submitted");
+
 
         if (isSuccessUser && isSuccessPass) {
-            // console.log(emailValue, passwordValue);
+
             let email = emailValue;
             let password = passwordValue;
             const user = await signIn({
@@ -195,7 +195,7 @@ const LoginPage = ({ csrfToken }) => {
 };
 
 LoginPage.getInitialProps = async (context) => {
-    // console.log(context);
+
     const { req, res } = context;
     const session = await getSession(req);
 

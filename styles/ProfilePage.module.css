@@ -8,7 +8,7 @@
     min-width: 3em;
     width: 4em;
     height: 100vh;
-    background-image: linear-gradient(to top, #fbce6f,#ecf59a,#a9dc93,#8ab2ab, #838fcd); 
+    background-image: linear-gradient(to top, #fbce6f, #ecf59a, #a9dc93, #8ab2ab, #838fcd);
     position: absolute;
     display: inline-flex;
     flex-direction: column;
@@ -54,7 +54,7 @@
     min-height: 3em;
     height: 4em;
     width: 100vw;
-    background-image: linear-gradient(to left, #fbce6f,#ecf59a,#a9dc93,#8ab2ab, #a6aedb); 
+    background-image: linear-gradient(to left, #fbce6f, #ecf59a, #a9dc93, #8ab2ab, #a6aedb);
     position: absolute;
     top: 0;
     display: flex;
@@ -88,10 +88,10 @@
     color: #3F51B5;
     line-height: 40px;
     margin-left: 3em;
-   
+
 }
 
-.backContainer{
+.backContainer {
     display: inline-flex;
     transition: 0.5s;
     font-size: 1em;
@@ -112,7 +112,7 @@
 
 /*------------------- My profile-------------------- */
 
-.generalInfo{
+.generalInfo {
     background-color: rgba(235, 221, 219, 0.8);
     border-radius: 2em;
     color: #555555;
@@ -120,43 +120,43 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
-    
+
 
 }
 
-.generalInfoHeader{
+.generalInfoHeader {
     display: inline-flex;
     margin: 1em;
     color: #FF9400;
 }
 
-.dataContainer{
+.dataContainer {
     margin: 0em 2em 2em 2em;
 }
 
-.userData{
-  
+.userData {
+
     padding: 0.5em 0em;
     width: 350px;
-    border-bottom: 1px solid #FF9400 ;
+    border-bottom: 1px solid #FF9400;
 }
 
 
-.profileContainer{   
+.profileContainer {
     display: inline-flex;
 }
 
 
-.chapters{
+.chapters {
     background-color: rgba(235, 221, 219, 0.8);
     border-radius: 2em;
     color: #555555;
     margin: 3em 15em 0em 0em;
 }
 
-.chapterData{
+.chapterData {
     padding: 0.5em 0em;
     margin-bottom: 3em;
     width: 350px;
-    border-bottom: 1px solid #FF9400 ;
+    border-bottom: 1px solid #FF9400;
 }
