@@ -7,8 +7,9 @@ import axios from "axios";
 import Link from "next/link";
 import Les from "../components/layouts/Les";
 import ColoredText from "../components/content/ColoredText";
+import VideoComponent from "../components/content/VideoComponent";
 
-const components = { DefaultLayout, ColoredText };
+const components = { DefaultLayout, ColoredText, VideoComponent };
 
 const Page = ({ props }) => {
     const { data: session, status } = useSession();
@@ -196,41 +197,67 @@ export async function getStaticPaths() {
     data.allVolume.map((vol, i) => {
         let vol_path = `volume_${i + 1}`;
         paths.push({ params: { path: [vol_path] } });
-        vol.chapters.map((chap, j) => {
-            let chap_path = `chapter_${j + 1}`;
-            paths.push({ params: { path: [vol_path, chap_path] } });
+        if (vol.chapters) {
+            vol.chapters.map((chap, j) => {
+                let chap_path = `chapter_${j + 1}`;
+                paths.push({ params: { path: [vol_path, chap_path] } });
 
-            chap.subchapters.map((sub, k) => {
-                let sub_path = `subchapter_${k + 1}`;
-                sub.theory != null &&
-                    paths.push({
-                        params: {
-                            path: [vol_path, chap_path, sub_path, "theory"],
-                        },
-                    }) &&
-                    paths.push({
-                        params: { path: [vol_path, chap_path, sub_path] },
+                if (chap.subchapters) {
+                    chap.subchapters.map((sub, k) => {
+                        let sub_path = `subchapter_${k + 1}`;
+                        sub.theory != null &&
+                            paths.push({
+                                params: {
+                                    path: [
+                                        vol_path,
+                                        chap_path,
+                                        sub_path,
+                                        "theory",
+                                    ],
+                                },
+                            }) &&
+                            paths.push({
+                                params: {
+                                    path: [vol_path, chap_path, sub_path],
+                                },
+                            });
+                        sub.practice != null &&
+                            paths.push({
+                                params: {
+                                    path: [
+                                        vol_path,
+                                        chap_path,
+                                        sub_path,
+                                        "practice",
+                                    ],
+                                },
+                            });
+                        sub.action != null &&
+                            paths.push({
+                                params: {
+                                    path: [
+                                        vol_path,
+                                        chap_path,
+                                        sub_path,
+                                        "action",
+                                    ],
+                                },
+                            });
+                        sub.exercise != null &&
+                            paths.push({
+                                params: {
+                                    path: [
+                                        vol_path,
+                                        chap_path,
+                                        sub_path,
+                                        "exercise",
+                                    ],
+                                },
+                            });
                     });
-                sub.practice != null &&
-                    paths.push({
-                        params: {
-                            path: [vol_path, chap_path, sub_path, "practice"],
-                        },
-                    });
-                sub.action != null &&
-                    paths.push({
-                        params: {
-                            path: [vol_path, chap_path, sub_path, "action"],
-                        },
-                    });
-                sub.exercise != null &&
-                    paths.push({
-                        params: {
-                            path: [vol_path, chap_path, sub_path, "exercise"],
-                        },
-                    });
+                }
             });
-        });
+        }
     });
 
     // console.log(paths);

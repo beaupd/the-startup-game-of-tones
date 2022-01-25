@@ -56,7 +56,8 @@ const profilePage = (props) => {
                                     Password: {password}
                                 </p>
                                 <p className={styles.userData}>
-                                    Total Recordings: {recordings.length}
+                                    Total Recordings:{" "}
+                                    {recordings ? recordings.length : "0"}
                                 </p>
                             </div>
                         </section>

@@ -6,7 +6,7 @@ const DefaultLayout = ({ children }) => {
     console.log(router.query);
     const { path } = router.query;
     const config = {
-        index: parseInt(path[2].replace(/[^0-9]/g, "")),
+        index: path[2] ? parseInt(path[2].replace(/[^0-9]/g, "")) : 0,
         chapter: parseInt(path[1].replace(/[^0-9]/g, "")),
         path: path,
     };
