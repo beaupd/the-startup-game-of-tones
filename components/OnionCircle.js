@@ -51,7 +51,22 @@ const OnionCircle = ({ chapter = 1, volume = "volume_1" }) => {
                                     </Link>
                                 </li>
                             );
-                        } else {
+                        } else if (i == 4) {
+                            return (
+                                <li className="absolute" key={i}>
+                                    <Link
+                                        href={`/${volume}/chapter_${chapter}/together`}
+                                    >
+                                        <a className="w-24 h-24 flex items-center justify-center bg-neutral-400 rounded-full">
+                                            <span className="text-xl">
+                                                {chapter}.{i}
+                                            </span>
+                                        </a>
+                                    </Link>
+                                </li>
+                            );
+                        }
+                        {
                             return (
                                 <li className="absolute" key={i}>
                                     <Link

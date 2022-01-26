@@ -559,7 +559,6 @@ const SvgComponent = ({ config }) => {
             <Link href={`/${config.path[0]}/${config.path[1]}/subchapter_3`}>
                 <a className="cursor-pointer">
                     <circle
-                        id="cirkel"
                         className="cls-2"
                         cx={103}
                         cy={510.21}

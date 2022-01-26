@@ -2,6 +2,7 @@ import { getSanityContent } from "./api/sanity";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import DefaultLayout from "../components/content/layouts/DefaultLayout";
+import VolumeLayout from "../components/content/layouts/VolumeLayout";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
 import Link from "next/link";
@@ -9,7 +10,7 @@ import Les from "../components/layouts/Les";
 import ColoredText from "../components/content/ColoredText";
 import VideoComponent from "../components/content/VideoComponent";
 
-const components = { DefaultLayout, ColoredText, VideoComponent };
+const components = { DefaultLayout, ColoredText, VideoComponent, VolumeLayout };
 
 const Page = ({ props }) => {
     const { data: session, status } = useSession();

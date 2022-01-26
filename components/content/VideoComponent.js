@@ -1,11 +1,40 @@
 import styles from "../../styles/VideosPage.module.css";
 import { useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 const VideoComponent = ({ videos }) => {
+    const router = useRouter();
     const videoRef = useRef();
     const titleRef = useRef();
     const [isPlaying, setPlaying] = useState(false);
     const [videoIndex, setVideoIndex] = useState(0);
+    const { path } = router.query;
+    let type = "blue";
+    if (path[3]) {
+        switch (path[3]) {
+            case "theory":
+                type = "blue";
+                break;
+            case "practice":
+                type = "green";
+                break;
+            case "action":
+                type = "yellow";
+                break;
+            case "exercise":
+                type = "orange";
+                break;
+        }
+    }
+
+    const color = {
+        bgColor: {
+            blue: "border-blue",
+            green: "border-green",
+            yellow: "border-yellow",
+            orange: "border-orange",
+        }[type],
+    };
 
     function playAndPause() {
         const video = videoRef.current;
@@ -36,7 +65,7 @@ const VideoComponent = ({ videos }) => {
 
         let newSource = videos[randomIdx];
         videoRef.current.querySelector("source").src = newSource;
-        console.log(videoRef.current.querySelector("source"));
+        // console.log(videoRef.current.querySelector("source"));
         titleRef.current.innerHTML = `Example ${randomIdx + 1}`;
         replay();
     }
@@ -95,7 +124,7 @@ const VideoComponent = ({ videos }) => {
                 </div>
             </div>
             <video
-                className={styles.videoExample}
+                className={`border-solid border-2 ${color.bgColor} ${styles.videoExample}`}
                 id="exampleVideo"
                 ref={videoRef}
             >

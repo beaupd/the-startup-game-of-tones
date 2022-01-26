@@ -61,7 +61,7 @@ const LoginPage = ({ csrfToken }) => {
             signIn("credentials", {
                 email: email,
                 password: password,
-                callbackUrl: "/profile",
+                callbackUrl: "/dashboard",
             });
         }
     };

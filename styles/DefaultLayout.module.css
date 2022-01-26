@@ -1,0 +1,17 @@
+.main {
+    max-width: 60em;
+    padding: 0em 2em;
+}
+
+.main p {
+    margin: 1em 0;
+    font-family: "poppins", sans-serif;
+}
+
+.main video {
+    margin: 1em 0;
+}
+
+.main h1 {
+    padding: 1em 0em;
+}
