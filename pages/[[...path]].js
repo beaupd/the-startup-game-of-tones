@@ -92,9 +92,33 @@ export async function getStaticProps({ params }) {
                     content: serialized,
                 }; // get content of intro of volume
                 break;
-            case 3: // its theory of subchapter
-                data = await getSanityContent({
-                    query: `
+            case 3: // its theory of subchapter or together
+                if (params.path[2] == "together") {
+                    data = await getSanityContent({
+                        query: `
+                    query {
+                        allVolume {
+                          chapters{
+                              together{title color content}
+                          }
+                        }
+                      }`,
+                    });
+                    // console.log(params.path[0]);
+                    vol_idx = params.path[0].replace("volume_", "") - 1;
+                    chap_idx = params.path[1].replace("chapter_", "") - 1;
+                    // console.log(chap_idx);
+                    content =
+                        data.allVolume[vol_idx].chapters[chap_idx].together;
+                    serialized = await serialize(content.content);
+                    props = {
+                        title: content.title,
+                        color: content.color,
+                        content: serialized,
+                    }; // get content of mixed puttin it together
+                } else {
+                    data = await getSanityContent({
+                        query: `
                     query {
                         allVolume {
                           chapters{
@@ -104,23 +128,24 @@ export async function getStaticProps({ params }) {
                           }
                         }
                       }`,
-                });
-                // console.log(params.path[0]);
-                vol_idx = params.path[0].replace("volume_", "") - 1;
-                chap_idx = params.path[1].replace("chapter_", "") - 1;
-                sub_idx = params.path[2].replace("subchapter_", "") - 1;
-                // console.log(chap_idx);
+                    });
+                    // console.log(params.path[0]);
+                    vol_idx = params.path[0].replace("volume_", "") - 1;
+                    chap_idx = params.path[1].replace("chapter_", "") - 1;
+                    sub_idx = params.path[2].replace("subchapter_", "") - 1;
+                    // console.log(chap_idx);
 
-                content =
-                    data.allVolume[vol_idx].chapters[chap_idx].subchapters[
-                        sub_idx
-                    ].theory;
-                serialized = await serialize(content.content);
-                props = {
-                    title: content.title,
-                    color: content.color,
-                    content: serialized,
-                }; // get content of intro of volume
+                    content =
+                        data.allVolume[vol_idx].chapters[chap_idx].subchapters[
+                            sub_idx
+                        ].theory;
+                    serialized = await serialize(content.content);
+                    props = {
+                        title: content.title,
+                        color: content.color,
+                        content: serialized,
+                    }; // get content of intro of volume
+                }
                 break;
             case 4: // its a lesson in subchapter
                 data = await getSanityContent({
@@ -177,6 +202,7 @@ export async function getStaticPaths() {
                 intro{title, color, content}
                 chapters{
                     intro{title, color, content},
+                    together{title, color, content}
                     subchapters{
                         theory{title, color, content}
                         practice{title, color, content}
@@ -196,17 +222,25 @@ export async function getStaticPaths() {
 
     data.allVolume.map((vol, i) => {
         let vol_path = `volume_${i + 1}`;
-        paths.push({ params: { path: [vol_path] } });
+        paths.push({ params: { path: [vol_path] } }); // path to volume index or introduction
         if (vol.chapters) {
             vol.chapters.map((chap, j) => {
                 let chap_path = `chapter_${j + 1}`;
-                paths.push({ params: { path: [vol_path, chap_path] } });
+                paths.push({ params: { path: [vol_path, chap_path] } }); // path to chapter index or introduction
+
+                if (chap.together) {
+                    paths.push({
+                        params: { path: [vol_path, chap_path, "together"] },
+                    });
+                }
 
                 if (chap.subchapters) {
                     chap.subchapters.map((sub, k) => {
+                        // loop through subchapters of chapter
                         let sub_path = `subchapter_${k + 1}`;
                         sub.theory != null &&
                             paths.push({
+                                // push theory as /theory
                                 params: {
                                     path: [
                                         vol_path,
@@ -217,12 +251,14 @@ export async function getStaticPaths() {
                                 },
                             }) &&
                             paths.push({
+                                // push theory as index
                                 params: {
                                     path: [vol_path, chap_path, sub_path],
                                 },
                             });
                         sub.practice != null &&
                             paths.push({
+                                // push practice as /practice
                                 params: {
                                     path: [
                                         vol_path,
@@ -234,6 +270,7 @@ export async function getStaticPaths() {
                             });
                         sub.action != null &&
                             paths.push({
+                                // push action as /action
                                 params: {
                                     path: [
                                         vol_path,
@@ -245,6 +282,7 @@ export async function getStaticPaths() {
                             });
                         sub.exercise != null &&
                             paths.push({
+                                // push exercise as /exercise
                                 params: {
                                     path: [
                                         vol_path,

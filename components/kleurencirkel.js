@@ -8,7 +8,7 @@ const defaultConfig = {
 };
 
 const SvgComponent = ({ config }) => {
-    console.log(config);
+    // console.log(config);
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,14 +47,21 @@ const SvgComponent = ({ config }) => {
                 data-name="verbindstreep 1"
             />
 
-            <circle
-                className="cls-2"
-                cx={103}
-                cy={667.28}
-                r={38.5}
-                id="witte_cirkel_4"
-                data-name="witte cirkel 4"
-            />
+            <Link href={`/${config.path[0]}/${config.path[1]}/together`}>
+                <a>
+                    <circle
+                        className="cls-2"
+                        cx={103}
+                        cy={667.28}
+                        r={38.5}
+                        id="witte_cirkel_4"
+                        data-name="witte cirkel 4"
+                    />
+                    <text x="88" y="675" className={styles.kleurenCirkelText}>
+                        1.4
+                    </text>
+                </a>
+            </Link>
 
             <Link href={`/${config.path[0]}/${config.path[1]}/`}>
                 <a className="cursor-pointer">
@@ -82,7 +89,7 @@ const SvgComponent = ({ config }) => {
                         id="witte_cirkel_kcirkel_1"
                         data-name="witte cirkel kcirkel 1"
                     />
-                    <text x="95" y="210" className={styles.kleurenCirkelText}>
+                    <text x="92" y="206" className={styles.kleurenCirkelText}>
                         {config.chapter}.1
                     </text>
                 </a>
@@ -320,7 +327,7 @@ const SvgComponent = ({ config }) => {
                         id="witte_cirkel_kcirkel_2"
                         data-name="witte cirkel kcirkel 2"
                     />
-                    <text x="90" y="360" className={styles.kleurenCirkelText}>
+                    <text x="90" y="363" className={styles.kleurenCirkelText}>
                         {config.chapter}.2
                     </text>
                 </a>

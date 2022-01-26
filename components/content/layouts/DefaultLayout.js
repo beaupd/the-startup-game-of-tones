@@ -3,13 +3,18 @@ import { useRouter } from "next/router";
 
 const DefaultLayout = ({ children }) => {
     const router = useRouter();
-    console.log(router.query);
+
     const { path } = router.query;
+    // console.log("paths", path);
     const config = {
-        index: path[2] ? parseInt(path[2].replace(/[^0-9]/g, "")) : 0,
+        index:
+            path[2] == "together"
+                ? 4
+                : parseInt(path[2].replace(/[^0-9]/g, "")),
         chapter: parseInt(path[1].replace(/[^0-9]/g, "")),
         path: path,
     };
+    // console.log("config", config);
 
     // router.query[3] ? {
     //     theory: "1",
